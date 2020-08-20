@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block localcss %}
+    <link rel="stylesheet" href="apptrak/jobapps/static/sidebar.css">
+    <style>
+        table{
+            width: 80%;
+            border-bottom: gray;
+            border-width: 2px;
+        }
+        td{
+           padding: 1em;
+        }
+        .update_info{
+            margin: .5em;
+        }
+    </style>
+{% endblock %}
+
+{% block title %} Current Apps {% endblock %}
+{% block body %}
+    <ul class="nav flex-column flex-sm-column" id="sidebar">
+        <li>
+            Sort by:
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Date</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Call Back</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Have Interview</a>
+          </li>
+          <li>
+              <a class="nav-link" href="#">Received Assignment</a>
+          </li>
+          <li>
+              <a class="nav-link" href="#">Top Job</a>
+          </li>
+    </ul>
+
+
+    <h2>Current Apps</h2>
+    {% if applications %}
+        <p>Open applications:</p>
+        <div class="accordion" id="accordionExample">
+        {% for item in applications %}
+            <div class="card">
+                <div class="card-header" id="heading{{ loop.index }}"> <!-- How to make accordion feature work? -->
+                    <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    {{ item.position }}, {{ item.company }}
+                    </button>
+                    </h2>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="heading{{ loop.index }}" data-parent="#accordionExample">
+                    <div class="card-body">
+                    <form method="post" action="jobapps/displayapps.html">
+                    <table>
+                    <tr>
+                        <td>Location: </td>
+                        <td>
+                            {{ item.location }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Heard Back?</td>
+                        <td>
+                            {% if item.called_back %}
+                                Called back!
+                            {% else %}
+                                No response
+                            {% endif %}
+                        </td>
+                        <td><input type='checkbox' name='call_back'><label for="call_back"> Got a call!</label></td>  <!-- needs to edit db -->
+                    <tr>
+                        <td>Interview?</td>
+                        <td>
+                            {% if item.interview %}
+                                Interview scheduled! {{ item.interview_date }}
+                            {% else %}
+                                No interview scheduled
+                            {% endif %}
+                        </td>
+                        <td>Interview scheduled button</td>
+                    </tr>
+                    <tr>
+                        <td>Assignment?</td>
+                        <td>
+                            {% if item.assignment %}
+                                Yes! Due {{ item.assignment_date }}
+                            {% else %}
+                                Not Yet
+                            {% endif %}
+                        </td>
+                    </tr>
+                    </table>
+                        URL: {{ item.url }} <br>
+                        <button type="submit" class="btn btn-outline-dark update_info">Update Details</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+     {% else %}
+        <p> You have sent no applications</p>
+    {% endif %}
+
+
+    <script>
+
+
+    </script>
+{% endblock %}

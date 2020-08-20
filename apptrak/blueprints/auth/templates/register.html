@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Sign Up {% endblock %}
+
+{% block body %}
+
+    <form action="" method="POST">
+    {{ form.name.label }}
+    {{ form.name() }}
+
+    {{ form.username.label }}
+    {{ form.username() }}
+
+    {{ form.email.label }}
+    {{ form.email() }}
+
+    {{ form.password.label }}
+    {{ form.password() }}
+
+    {{ form.confirm_pass.label }}
+    {{ form.confirm_pass() }}
+
+    {{ form.submit() }}
+    </form>
+
+{% endblock %}

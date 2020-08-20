@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} Add App{% endblock %}
+
+{% block body %}
+
+    <h2>Form to upload apps</h2>
+
+    <form action="/add-app" method="post">
+
+
+    {{ form.url.label }}
+    {{ form.url() }}
+    <br>
+    {{ form.company.label }}
+    {{ form.company() }}
+    <br>
+    {{ form.position.label }}
+    {{ form.position() }}
+    <br>
+    {{ form.location.label }}
+    {{ form.location() }}
+    <br>
+    {{ form.contact.label }}
+    {{ form.contact() }}
+    <br>
+    {{ form.called_back.label }}
+    {{ form.called_back() }}
+    <br>
+    {{ form.interview.label }}
+    {{ form.interview() }}
+    <br>
+    {{ form.interview_date.label }}
+    {{ form.interview_date() }}
+    <br>
+    {{ form.assignment.label }}
+    {{ form.assignment() }}
+    <br>
+    {{ form.assignment_due.label }}
+    {{ form.assignment_due() }}
+    <br>
+    {{ form.top_job.label }}
+    {{ form.top_job() }}
+    <br>
+    {{ form.submit() }}
+
+    </form>
+
+
+{% endblock %}
