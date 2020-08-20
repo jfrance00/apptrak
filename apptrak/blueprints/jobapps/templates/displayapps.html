@@ -56,7 +56,7 @@
                 </div>
                 <div id="collapseOne" class="collapse" aria-labelledby="heading{{ loop.index }}" data-parent="#accordionExample">
                     <div class="card-body">
-                    <form method="post" action="jobapps/displayapps.html">
+                    <form method="post" action="current-apps">
                     <table>
                     <tr>
                         <td>Location: </td>
@@ -73,7 +73,7 @@
                                 No response
                             {% endif %}
                         </td>
-                        <td><input type='checkbox' name='call_back'><label for="call_back"> Got a call!</label></td>  <!-- needs to edit db -->
+                        <td>{{ form.called_back() }} Got a call!</td>  <!-- needs to edit db -->
                     <tr>
                         <td>Interview?</td>
                         <td>
@@ -83,7 +83,7 @@
                                 No interview scheduled
                             {% endif %}
                         </td>
-                        <td>Interview scheduled button</td>
+                        <td> {{ form.interview() }} Got an Interview!</td>
                     </tr>
                     <tr>
                         <td>Assignment?</td>
@@ -94,10 +94,12 @@
                                 Not Yet
                             {% endif %}
                         </td>
+                        <td>{{ form.assignment() }} Assignment received!</td>
                     </tr>
                     </table>
-                        URL: {{ item.url }} <br>
-                        <button type="submit" class="btn btn-outline-dark update_info">Update Details</button>
+                        Job Post: {{ item.url }} <br>
+                        {{ form.submit() }}
+                        {#                        <button type="submit" class="btn btn-outline-dark update_info">Update Details</button>#}
                     </form>
                     </div>
                 </div>

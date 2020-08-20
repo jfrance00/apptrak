@@ -23,8 +23,12 @@ class JobApplication(db.Model):
         db.session.add(self)
         db.session.commit()
 
-    def edit(self):
-        pass
+    def edit(self, call_back, interview, interview_date, assignment, assignment_date):
+        self.called_back = call_back
+        self.interview = interview
+        self.interview_date = interview_date
+        self.assignment = assignment
+        self.assignment_due = assignment_date
 
     @classmethod
     def get_job(cls, job_id):

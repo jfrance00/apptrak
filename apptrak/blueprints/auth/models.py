@@ -8,11 +8,6 @@ from ..jobapps.models import JobApplication
 def load_user(user_id):
     return User.query.get(user_id)
 
-# job_applications = db.Table('job_applications',
-#     db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-#     db.Column('jobapplicaiton_id', db.Integer, db.ForeignKey('jobapplication.id'))
-# )
-
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
