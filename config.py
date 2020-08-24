@@ -10,20 +10,20 @@ class Config:
 
 
 class DevConfig(Config):
-    SECRET_KEY = "arandomsecretkey"
+    SECRET_KEY = os.urandom(24)
 
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "app.db")
 
     MAIL_SERVER = "smtp.gmail.com"
-    MAIL_PORT = 587
+    MAIL_PORT = 587                   # if use SSL instead change to 465
     MAIL_USE_TLS = True
     MAIL_USE_SSL = False
-    MAIL_USERNAME = 'julie@mail.com'
-    MAIL_PASSWORD = 'Chocolate111'
+    MAIL_USERNAME = 'apptrak20@gmail.com'  # TODO don't hard code name and passwords
+    MAIL_PASSWORD = 'th!si$apassw0rd'
 
 
 class ProdConfig(Config):
-    SECRET_KEY = "1265ewqtfsdaxvgz9287ynx918u2nx8172m301u9"
+    SECRET_KEY = os.urandom(24)
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI")
 
 

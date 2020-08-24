@@ -12,6 +12,6 @@ class UploadApp(flask_wtf.FlaskForm):
     interview = wtf.BooleanField('Interview Scheduled?')
     interview_date = wtf.DateTimeField('Interview Data/Time')
     assignment = wtf.BooleanField('Assignment Received')
-    assignment_due = wtf.DateTimeField('Assignment due date')
+    assignment_date = wtf.DateTimeField('Assignment due date')
     top_job = wtf.BooleanField('Do you really really want this job?')
     submit = wtf.SubmitField('Submit')

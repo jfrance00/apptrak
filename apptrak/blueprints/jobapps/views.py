@@ -12,6 +12,7 @@ def add_app():
     form = forms.UploadApp()
     if flask.request.method == 'POST':
         jobapp = JobApplication(
+            date_added=datetime.datetime.now(),
             url=form.url.data,
             company=form.company.data,
             position=form.position.data,
@@ -21,7 +22,7 @@ def add_app():
             interview=form.interview.data,
             interview_date=form.interview_date.data,
             assignment=form.assignment.data,
-            assignment_due=form.assignment_due.data,
+            assignment_date=form.assignment_date.data,
             top_job=form.top_job.data,
             user_id=current_user.id
             )
@@ -34,20 +35,43 @@ def add_app():
 def display_apps():
     form = forms.UploadApp()
     applications = current_user.job_applications
-    if flask.request.method == "POST":
-        call_back = form.called_back.data
-        interview = form.interview.data
-        interview_date = form.interview_date.data
-        assignment = form.assignment.data
-        assignment_date = form.assignment_due.data
-        JobApplication.edit(call_back=call_back, interview=interview, interview_date=interview_date,
-                            assignment=assignment, assignment_date=assignment_date)
-        print("updated data")
-        return flask.redirect('display_apps')
+    # if flask.request.method == "POST":
+    #     call_back = flask.request.form.get("call_back")
+    #     print(call_back)
+        # call_back = form.called_back.data
+        # interview = form.interview.data
+        # interview_date = form.interview_date.data
+        # assignment = form.assignment.data
+        # assignment_date = form.assignment_due.data
+        # JobApplication.edit(call_back=call_back, interview=interview, interview_date=interview_date,
+        #                     assignment=assignment, assignment_date=assignment_date)
+        # print("updated data")
+        # return flask.redirect('display_apps')
     return flask.render_template('displayapps.html', applications=applications, form=form)
 
 
-@jobapps.route('/jobapp/<job_id>', methods=["POST", "GET"])
-def app_details(job_id):
-    job = JobApplication.get_job(job_id)
-    return flask.render_template('jobdetails.html', job=job)
+@jobapps.route('/edit-app', methods=['GET', 'POST'])
+def edit_app():
+    job_id = flask.request.json[0]
+    field = flask.request.json[1]
+    date = flask.request.json[2]
+    print(f'id: {job_id}')
+    print(f'field: {field}')
+    print(f'date: {date}')
+    job_object = JobApplication.get_job(job_id)         # pulls job object
+    print(f'job_object: {job_object}')
+    job_object.edit(field)
+    job_object.add_date(field, date)
+    print("edit function called")
+    return "data sent"
+
+
+@jobapps.route('/filter/<field>')
+def filter(field):
+    pass
+
+
+# @jobapps.route('/jobapp/<job_id>', methods=["POST", "GET"]) Page not in use - delete when positive won't be relevant
+# def app_details(job_id):
+#     job = JobApplication.get_job(job_id)
+#     return flask.render_template('jobdetails.html', job=job)
