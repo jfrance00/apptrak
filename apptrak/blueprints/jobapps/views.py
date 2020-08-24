@@ -52,18 +52,20 @@ def display_apps():
 
 @jobapps.route('/edit-app', methods=['GET', 'POST'])
 def edit_app():
-    job_id = flask.request.json[0]
-    field = flask.request.json[1]
-    date = flask.request.json[2]
-    print(f'id: {job_id}')
-    print(f'field: {field}')
-    print(f'date: {date}')
+    job_id = flask.request.json[0]               # gets id from Ajax call
+    field = flask.request.json[1]                # gets data field to be updated (interview, assignment, call)
+    date = flask.request.json[2]                 # gets user input date
+    job_object = JobApplication.get_job(job_id)
+    job_object.edit(field)                       # class method to update db
+    job_object.add_date(field, date)             # class method to add date to db
+
+
+@jobapps.route('/archive')
+def archive():
+    job_id = flask.request.json(0)
     job_object = JobApplication.get_job(job_id)         # pulls job object
-    print(f'job_object: {job_object}')
-    job_object.edit(field)
-    job_object.add_date(field, date)
-    print("edit function called")
-    return "data sent"
+
+
 
 
 @jobapps.route('/filter/<field>')

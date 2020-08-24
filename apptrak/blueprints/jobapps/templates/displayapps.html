@@ -13,6 +13,7 @@
         }
         #sidebar {
             width: 12%;
+            padding: 1em;
             position: fixed;
             top: 3.5em;
             left: 0;
@@ -30,6 +31,9 @@
             text-align: right;
             float: right;
        }
+        #archive{
+            float: right;
+        }
     </style>
 {% endblock %}
 
@@ -38,7 +42,7 @@
 
 <div class="wrapper">
     <!-- Sidebar to filter -->
-    <nav class="sidebar-header" id="sidebar">
+    <nav class="sidebar-header">
             <ul class="nav flex-column flex-sm-column" id="sidebar">
                 <li>
                     Sort by:
@@ -103,6 +107,8 @@
                             <td class="edit-db">
                              {% if not item.called_back %}
                                 <input type="checkbox" name="call_back" value="{{ item.id }}" onchange="edit_data({{ item.id }}, 'called_back')"> Heard back!</input>
+                             {% else %}
+                                 Congrats!
                              {% endif %}
                             </td>
                         <tr>
@@ -141,6 +147,7 @@
                         </tr>
                         </table>
                             Job Post: <a href="{{ item.url }}" target="_blank">{{ item.url }}</a>
+                            <button type="button" class="btn btn-outline-secondary" id="archive" onclick="archive({{ item.id }})">X</button>
                         </form>
                         </div>
                     </div>
@@ -164,13 +171,23 @@
     {#    '<input type=time>');#}
 
 
-     function edit_data(id, field, item_date){
-      $.ajax({
-      type : 'POST',
-      url : "{{url_for('jobapps.edit_app') }}",
-      data : JSON.stringify([id, field, item_date]),
-      contentType: 'application/json;charset=UTF-8',
-      success: function(response) {}
+    function archive(id){
+        $.ajax({
+        type : 'POST',
+        url : "{{url_for('jobapps.edit_app') }}",
+        data : JSON.stringify([id, field, item_date]),
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {}
+        });
+    }
+
+    function edit_data(id, field, item_date){
+        $.ajax({
+        type : 'POST',
+        url : "{{url_for('jobapps.edit_app') }}",
+        data : JSON.stringify([id, field, item_date]),
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {}
         });
     }
 
