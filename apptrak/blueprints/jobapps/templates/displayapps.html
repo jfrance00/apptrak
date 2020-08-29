@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block localcss %}
-    <link rel="stylesheet" href="apptrak/jobapps/static/sidebar.css">
+{#    <link rel="stylesheet" href="apptrak/jobapps/static/sidebar.css">#}
     <style>
         table{
             width: 80%;
@@ -31,7 +31,7 @@
             text-align: right;
             float: right;
        }
-        #archive{
+        .archive{
             float: right;
         }
     </style>
@@ -42,28 +42,25 @@
 
 <div class="wrapper">
     <!-- Sidebar to filter -->
-    <nav class="sidebar-header">
+    <nav class="sidebar-header" id="sort-bar">
             <ul class="nav flex-column flex-sm-column" id="sidebar">
                 <li>
                     Sort by:
                 </li>
                 <li class="nav-item">
-                    <input type="checkbox" onclick="filter('date')"> Date</input>
+                    <input class="sort_by" id="date" type="checkbox" onclick="sort_by_backend('date')"> Date</input>
                 </li>
                 <li class="nav-item">
-                    <input type="checkbox" onclick="filter('called_back')"> Responded</input>
+                    <input class="sort_by" id="called_back" type="checkbox" onclick="sort_by_backend('called_back')"> Responded</input>
                   </li>
                   <li class="nav-item">
-                      <input type="checkbox" onclick="filter('interview')"> Interview</input>
+                      <input class="sort_by" id="interview" type="checkbox" onclick="sort_by_backend('interview')"> Interview</input>
                   </li>
                   <li>
-                      <input type="checkbox" onclick="filter('assignment')"> Assignments</input>
+                      <input class="sort_by" id="assignment" type="checkbox" onclick="sort_by_backend('assignment')"> Assignments</input>
                   </li>
                   <li>
-                      <input type="checkbox" onclick="filter('top_job')"> Top Job</input>
-                  </li>
-                  <li>
-                      <input type="checkbox" onclick="filter('archived')"> Archived</input>
+                      <input class="sort_by" id="archived" type="checkbox" onclick="sort_by_backend('archived')"> Archived</input>
                   </li>
             </ul>
         </nav>
@@ -76,82 +73,7 @@
             <p>Open applications:</p>
             <div class="accordion" id="accordionExample">
             {% for item in applications %}
-                <div class="card">
-                    <div class="card-header" id="heading{{ loop.index }}"> <!-- How to make accordion feature work? -->
-                        <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        {{ item.position }}, {{ item.company }}
-                        </button>
-                        </h2>
-                        <a href="#" class="badge badge-info" id="edit_link">Edit Info</a>
-                    </div>
-                    <div id="collapseOne" class="collapse" aria-labelledby="heading{{ loop.index }}" data-parent="#accordionExample">
-                        <div class="card-body">
-                        <form method="post" action="current-apps">
-                        <table>
-                        <tr>
-                            <td>Location: </td>
-                            <td>
-                                {{ item.location }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> Heard Back?</td>
-                            <td>
-                                {% if item.called_back %}
-                                    Called back!
-                                {% else %}
-                                    No response
-                                {% endif %}
-                            </td>
-                            <td class="edit-db">
-                             {% if not item.called_back %}
-                                <input type="checkbox" name="call_back" value="{{ item.id }}" onchange="edit_data({{ item.id }}, 'called_back')"> Heard back!</input>
-                             {% else %}
-                                 Congrats!
-                             {% endif %}
-                            </td>
-                        <tr>
-                            <td>Interview?</td>
-                            <td>
-                                {% if item.interview %}
-                                    Interview scheduled!
-                                {% else %}
-                                    No interview scheduled
-                                {% endif %}
-                            </td>
-                            <td>
-                                {% if not item.interview %}
-                                <input type="checkbox" name="call_back" value="{{ item.id }}" onchange="collect_date({{ item.id }}, 'interview')"> Invited to interview!</input>
-                                {% else %}
-                                <p>Interview date: {{ item.interview_date }}</p>
-                                {% endif %}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Assignment?</td>
-                            <td>
-                                {% if item.assignment %}
-                                    Yes! Due {{ item.assignment_date }}
-                                {% else %}
-                                    Not Yet
-                                {% endif %}
-                            </td>
-                            <td>
-                             {% if not item.assignment %}
-                                <input type="checkbox" name="call_back" value="{{ item.id }}" onchange="collect_date({{ item.id }}, 'assignment')"> Assignment received!</input>
-                             {% else %}
-                                <p>Assignment due: {{ item.assignment_date }}</p>
-                             {% endif %}
-                            </td>
-                        </tr>
-                        </table>
-                            Job Post: <a href="{{ item.url }}" target="_blank">{{ item.url }}</a>
-                            <button type="button" class="btn btn-outline-secondary" id="archive" onclick="archive({{ item.id }})">X</button>
-                        </form>
-                        </div>
-                    </div>
-                </div>
+                {% include 'application_card.html' %}
             {% endfor %}
             </div>
          {% else %}
@@ -160,10 +82,9 @@
     </div>
 </div>
 
-
     <script>
-
     function collect_date(id, field){
+        console.log('data being collected')
         let date = window.prompt("Congrats! Enter the date and time of you interview (MM/DD HH:MM")
         edit_data(id, field, date)
     }
@@ -191,11 +112,32 @@
         });
     }
 
-    {#function filter(field) {#}
-    {#     let applications = {{ applications }};#}
-         {#console.log(data)#}
-         {#console.log('filtering');#}
-    {#    return applications#}
+    function sort_by_backend(field) {
+        console.log("backend called for" + field)
+        $.ajax({
+        type : 'POST',
+        url : "{{url_for('jobapps.sort_by') }}",
+        data : JSON.stringify(field),
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log('data returned')
+            console.log(response.applications)
+            $('div accordionExample').append(response.applications)
+        }
+        });
+    }
+
+
+    {#function sort_by_frontent(){#}
+    {#    $.ajax({#}
+    {#    type : 'POST',#}
+    {#    url : "{{url_for('jobapps.sort_by') }}",#}
+    {#    data : JSON.stringify([id, field, item_date]),#}
+    {#    contentType: 'application/json;charset=UTF-8',#}
+    {#    success: function(response) {}#}
+    {#    });#}
+    {#}#}
+
 
 
     </script>

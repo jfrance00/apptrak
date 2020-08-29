@@ -1,7 +1,6 @@
 from ... import db
 # from ...blueprints.auth.models import User
 
-
 class JobApplication(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date_added = db.Column(db.Date)
@@ -18,6 +17,12 @@ class JobApplication(db.Model):
     archived = db.Column(db.Boolean)
     top_job = db.Column(db.Boolean)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __json__(self):                                      # should make table into JSON object with the class below
+        return {'date_added': self.date_added, 'company': self.company, 'position': self.position,
+                'location': self.location, 'url': self.url, 'contact': self.contact, 'interview': self.interview,
+                'called_back': self.called_back, 'interview_date': self.interview_date, 'assignment': self.assignment,
+                'assignment_date': self.assignment_date, 'archived': self.archived, 'user_id': self.user_id}
 
     def save(self):
         db.session.add(self)
@@ -39,7 +44,11 @@ class JobApplication(db.Model):
         job = cls.query.filter_by(id=job_id).first()
         return job
 
-    # JSON stringify function - turn to dict
+    def get_att_to_sort(self, field):
+        attribute = getattr(self, field)
+        return attribute
+
+
 
 
 

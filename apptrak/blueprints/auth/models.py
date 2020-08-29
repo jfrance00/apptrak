@@ -1,4 +1,4 @@
-from ... import db, login_mgr
+from ... import db, login_mgr, create_app
 from flask_login import UserMixin
 import flask_login
 import time
@@ -36,6 +36,7 @@ class User(UserMixin, db.Model):
         }
 
         # Get the secret key from config
+        app = create_app()
         secret_key = app.config['SECRET_KEY']
 
         # Create the token
