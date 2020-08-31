@@ -44,21 +44,26 @@
     <!-- Sidebar to filter -->
     <nav class="sidebar-header" id="sort-bar">
             <ul class="nav flex-column flex-sm-column" id="sidebar">
-                <li>
-                    Sort by:
-                </li>
-                <li class="nav-item">
-                    <input class="sort_by" id="called_back" type="checkbox" onclick="sort_by_backend('called_back')"> Responded</input>
-                  </li>
-                  <li class="nav-item">
-                      <input class="sort_by" id="interview" type="checkbox" onclick="sort_by_backend('interview')"> Interview</input>
-                  </li>
-                  <li>
-                      <input class="sort_by" id="assignment" type="checkbox" onclick="sort_by_backend('assignment')"> Assignments</input>
-                  </li>
-                  <li>
-                      <input class="sort_by" id="archived" type="checkbox" onclick="sort_by_backend('archived')"> Archived</input>
-                  </li>
+                <form method="post">
+                    <li>
+                        Sort by:
+                    </li>
+                    <li class="nav-item">
+                        <input class="sort_by" id="called_back"  name="filter_field" type="checkbox" value="called_back"> Responded</input>
+                      </li>
+                      <li class="nav-item">
+                          <input class="sort_by" id="interview" name="filter_field" type="checkbox" value="interview"> Interview</input>
+                      </li>
+                      <li>
+                          <input class="sort_by" id="assignment" name="filter_field" type="checkbox" value="assignment"> Assignments</input>
+                      </li>
+                      <li>
+                          <input class="sort_by" id="archived" name="filter_field" type="checkbox" value="archived"> Archived</input>
+                      </li>
+                      <li>
+                          <input type="submit" id="submit_button">
+                      </li>
+                </form>
             </ul>
         </nav>
     </div>
@@ -116,7 +121,7 @@
     }
 
     function sort_by_backend(field) {
-        console.log("backend called for" + field)
+        console.log("backend called for " + field)
         $.ajax({
             type: 'POST',
             url: "{{url_for('jobapps.display_apps') }}",

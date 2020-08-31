@@ -1,12 +1,12 @@
 import flask
+from sqlalchemy import select, and_
 from . import jobapps, forms
 from .models import JobApplication
 from ..auth.models import User
 from ... import db
-from ...sort_data import sorting_feature
+from ...sort_data import single_sorting_feature, double_sorting_feature, triple_sorting_feature, quad_sorting_feature
 from flask_login import current_user, login_required
 import datetime
-import json
 
 
 @jobapps.route('/add-app', methods=['GET', 'POST'])
@@ -40,13 +40,17 @@ def display_apps():
     applications = current_user.job_applications
     applications_as_json = []
     if flask.request.method == 'POST':
-        field = flask.request.json
-        filtered_apps = sorting_feature(field)
-        print(f'data passed as applications: {filtered_apps}')
-        return flask.render_template('displayapps.html', applications=filtered_apps)
-
-    # def openfile(f):                 # TODO if done in backend delete
-    #     return open(f, 'r').read()
+        sort_field_list = flask.request.form.getlist('filter_field')
+        num_fields_to_check = len(sort_field_list)
+        if num_fields_to_check == 1:                                   # loop checks for all possible combinations of
+            applications = single_sorting_feature(sort_field_list[0])  # filter choices
+        elif num_fields_to_check == 2:
+            applications = double_sorting_feature(sort_field_list)
+        elif num_fields_to_check == 3:
+            applications = triple_sorting_feature(sort_field_list)
+        elif num_fields_to_check == 4:
+            applications = quad_sorting_feature(sort_field_list)
+        return flask.render_template('displayapps.html', applications=applications)
     for item in applications:
         single_app = item.__json__()
         applications_as_json.append(single_app)

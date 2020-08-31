@@ -3,6 +3,18 @@ from flask_login import logout_user, current_user
 from . import forms, auth
 from .models import User
 from ... import db
+from ...mail_handler import send_password_link
+import jwt
+import os
+
+
+path = 'C:\\Users\\Julie\\Desktop\\apptrak'
+os.chdir(path)
+
+from wsgi import app
+
+
+
 
 
 @auth.route('/register', methods=['GET', 'POST'])
@@ -50,9 +62,11 @@ def request_password():
     if flask.request.method == 'POST':
         email = form.email.data                          # TODO use email to id user and send email
         user = User.query.filter_by(email=email).first()
-        print(user)
         if user:
-            # TODO email function to send link to reset password
+            payload = {'user_id': user.id}
+            token = jwt.encode(payload, app.config['SECRET_KEY'])
+            url = flask.url_for('auth.reset_password', jwt_token=token)
+            print(url)
             flask.flash("Password reset email sent")
             return flask.render_template('index.html')
         else:
@@ -61,8 +75,8 @@ def request_password():
     return flask.render_template('password_request.html', form=form)
 
 
-@auth.route('/reset-password', methods=['GET', 'POST'])
-def reset_password():
+@auth.route('/reset-password/<jwt_token>', methods=['GET', 'POST'])
+def reset_password(token):
     form = forms.PasswordReset()
-    if flask.request.method == 'POST':
-        return flask.redirect('login')
+    return 'password reset'
+
