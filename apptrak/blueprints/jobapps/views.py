@@ -3,6 +3,7 @@ from . import jobapps, forms
 from .models import JobApplication
 from ..auth.models import User
 from ... import db
+from ...sort_data import sorting_feature
 from flask_login import current_user, login_required
 import datetime
 import json
@@ -36,16 +37,20 @@ def add_app():
 @jobapps.route('/current-apps', methods=['GET', 'POST'])
 @login_required
 def display_apps():
-    form = forms.UploadApp()    #form needed here?
     applications = current_user.job_applications
     applications_as_json = []
-    def openfile(f):
-        return open(f, 'r').read()
+    if flask.request.method == 'POST':
+        field = flask.request.json
+        filtered_apps = sorting_feature(field)
+        print(f'data passed as applications: {filtered_apps}')
+        return flask.render_template('displayapps.html', applications=filtered_apps)
+
+    # def openfile(f):                 # TODO if done in backend delete
+    #     return open(f, 'r').read()
     for item in applications:
         single_app = item.__json__()
         applications_as_json.append(single_app)
-    print(applications_as_json)
-    return flask.render_template('displayapps.html', applications=applications_as_json, form=form, openfile=openfile)
+    return flask.render_template('displayapps.html', applications=applications_as_json)
 
 
 @jobapps.route('/edit-app', methods=['GET', 'POST'])
