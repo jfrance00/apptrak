@@ -48,9 +48,6 @@
                     Sort by:
                 </li>
                 <li class="nav-item">
-                    <input class="sort_by" id="date" type="checkbox" onclick="sort_by_backend('date')"> Date</input>
-                </li>
-                <li class="nav-item">
                     <input class="sort_by" id="called_back" type="checkbox" onclick="sort_by_backend('called_back')"> Responded</input>
                   </li>
                   <li class="nav-item">
@@ -73,7 +70,13 @@
             <p>Open applications:</p>
             <div class="accordion" id="accordionExample">
             {% for item in applications %}
+                <div id="sorted_app_{{ loop.index0 }}">
+                <div class="filtered_data">
+                {% with item = item %}
                 {% include 'application_card.html' %}
+                {% endwith %}
+                </div>
+                </div>
             {% endfor %}
             </div>
          {% else %}
@@ -120,23 +123,33 @@
         data : JSON.stringify(field),
         contentType: 'application/json;charset=UTF-8',
         success: function(response) {
-            console.log('data returned')
             console.log(response.applications)
-            $('div accordionExample').append(response.applications)
-        }
+            $(".filtered_data").empty()
+            $(".filtered_data").append(response.applications.forEach(element => create_application_card(element)))
+
+            {#for(let i=0; i<response.applications; i++) {#}
+            {#    $("#sorted_app_"+ i).append(element => create_application_card(response.applications[element]))#}
+            {#    }#}
+                {#$("#sorted_app_"+ i).append(response.applications.forEach(element => create_application_card(element)))#}
+            {#    $("#accordionExample").append(create_application_card(response.applications[i]))#}
+            {#    }#}
+            }
         });
     }
 
-
-    {#function sort_by_frontent(){#}
-    {#    $.ajax({#}
-    {#    type : 'POST',#}
-    {#    url : "{{url_for('jobapps.sort_by') }}",#}
-    {#    data : JSON.stringify([id, field, item_date]),#}
-    {#    contentType: 'application/json;charset=UTF-8',#}
-    {#    success: function(response) {}#}
-    {#    });#}
-    {#}#}
+    function create_application_card(item) {
+        console.log("create card function called")
+        let src = `{{ openfile('apptrak/blueprints/jobapps/templates/application_card.html')}}`
+        {#src = src.replace(/\s/g, '')#}
+        try {
+            var fn = jinja.compile(src).render();
+            console.log(fn);
+        } catch(e) {
+            console.error(e)
+            //todo: update error panel
+            return;
+        }
+    }
 
 
 

@@ -16,6 +16,7 @@
         {{ form.submit() }}
 
     </form>
-    <h4>Or if you don't have an account yet, signup <a href="{{ url_for('auth.register') }}">here</a> </h4>
+    <h4>New here?, <a href="{{ url_for('auth.register') }}">Signup</a> </h4>
+    <h4>Forgot something? Like your <a href="{{ url_for('auth.request_password')}}">Password?</a> </h4>
 
 {% endblock %}

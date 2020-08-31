@@ -31,7 +31,7 @@ def login():
         password = form.password.data
         if User.authenticate(email, password):
             print(current_user)
-            return flask.redirect('index') #TODO change redirect to user page
+            return flask.redirect('index')  # TODO change redirect to user page
         else:
             flask.flash("Username or password invalid")
             return flask.redirect('login')
@@ -41,5 +41,28 @@ def login():
 @auth.route('/logout')
 def logout():
     logout_user()
-    print(current_user)
     return flask.redirect('index')
+
+
+@auth.route('/request-password', methods=['GET', 'POST'])
+def request_password():
+    form = forms.PasswordResetEmail()
+    if flask.request.method == 'POST':
+        email = form.email.data                          # TODO use email to id user and send email
+        user = User.query.filter_by(email=email).first()
+        print(user)
+        if user:
+            # TODO email function to send link to reset password
+            flask.flash("Password reset email sent")
+            return flask.render_template('index.html')
+        else:
+            flask.flash("No account with that email address")
+            return flask.redirect('login')
+    return flask.render_template('password_request.html', form=form)
+
+
+@auth.route('/reset-password', methods=['GET', 'POST'])
+def reset_password():
+    form = forms.PasswordReset()
+    if flask.request.method == 'POST':
+        return flask.redirect('login')

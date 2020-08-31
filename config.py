@@ -10,7 +10,7 @@ class Config:
 
 
 class DevConfig(Config):
-    SECRET_KEY = os.urandom(24)
+    SECRET_KEY = 'iamareallylongsecretkey'  # change to os.urandom(24)
 
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "app.db")
 

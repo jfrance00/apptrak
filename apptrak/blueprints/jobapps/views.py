@@ -36,14 +36,16 @@ def add_app():
 @jobapps.route('/current-apps', methods=['GET', 'POST'])
 @login_required
 def display_apps():
-    form = forms.UploadApp()
+    form = forms.UploadApp()    #form needed here?
     applications = current_user.job_applications
     applications_as_json = []
+    def openfile(f):
+        return open(f, 'r').read()
     for item in applications:
         single_app = item.__json__()
         applications_as_json.append(single_app)
     print(applications_as_json)
-    return flask.render_template('displayapps.html', applications=applications_as_json, form=form)
+    return flask.render_template('displayapps.html', applications=applications_as_json, form=form, openfile=openfile)
 
 
 @jobapps.route('/edit-app', methods=['GET', 'POST'])
@@ -55,20 +57,16 @@ def edit_app():
     job_object = JobApplication.get_job(job_id)
     job_object.edit(field)                       # class method to update db
     job_object.add_date(field, date)             # class method to add date to db
+    return 'okay'
 
 
 @jobapps.route('/sort_apps', methods=['GET', 'POST'])
 def sort_by():
     field = flask.request.json
     user_apps = current_user.job_applications
-    sorted_applications = []
-    for item in user_apps:
-        attribute = item.get_att_to_sort(field)
-        print(attribute)
-        if attribute:
-            app_as_json = item.__json__()
-            sorted_applications.append(app_as_json)
-    print(sorted_applications)
+    sorted_applications = [app.__json__() for app in filter(lambda app: getattr(app, field), user_apps)]
+    for app in sorted_applications:
+        print(app['id'])
     return flask.jsonify({'applications': sorted_applications})
 
 
@@ -77,11 +75,6 @@ def archive():
     job_id = flask.request.json(0)
     job_object = JobApplication.get_job(job_id)
     job_object.archived = True
-
-
-@jobapps.route('/filter/<field>')
-def filter(field):
-    pass
 
 
 # @jobapps.route('/jobapp/<job_id>', methods=["POST", "GET"]) Page not in use - delete when positive won't be relevant

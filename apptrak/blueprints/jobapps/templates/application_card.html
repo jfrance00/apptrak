@@ -1,86 +1,77 @@
-
-<div class="card">
-    <div class="card-header" id="headingOne"> <!-- How to make accordion feature work? -->
-        <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        {{ item.position }}, {{ item.company }}
-        </button>
-        </h2>
-        <a href="#" class="badge badge-info" id="edit_link">Edit Info</a>
-    </div>
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-        <div class="card-body">
-        <form method="post" action="current-apps">
-        <table>
-        <tr>
-            <td>Location: </td>
-            <td>
-                {{ item.location }}
-            </td>
-        </tr>
-        <tr>
-            <td> Heard Back?</td>
-            <td>
-                {% if item.called_back %}
-                    Called back!
-                {% else %}
-                    No response
-                {% endif %}
-            </td>
-            <td class="edit-db">
-             {% if not item.called_back %}
-                <input type="checkbox" name="call_back" value="{{ item.id }}" onchange="edit_data({{ item.id }}, 'called_back')"> Heard back!</input>
-             {% else %}
-                 Congrats!
-             {% endif %}
-            </td>
-        <tr>
-            <td>Interview?</td>
-            <td>
-                {% if item.interview %}
-                    Interview scheduled!
-                {% else %}
-                    No interview scheduled
-                {% endif %}
-            </td>
-            <td>
-                {% if not item.interview %}
-                <input type="checkbox" name="call_back" value="{{ item.id }}" onchange="collect_date({{ item.id }}, 'interview')"> Invited to interview!</input>
-                {% else %}
-                <p>Interview date: {{ item.interview_date }}</p>
-                {% endif %}
-            </td>
-        </tr>
-        <tr>
-            <td>Assignment?</td>
-            <td>
-                {% if item.assignment %}
-                    You have an assignment to do!
-                {% else %}
-                    Not Yet
-                {% endif %}
-            </td>
-            <td>
-             {% if not item.assignment %}
-                <input type="checkbox" name="call_back" value="{{ item.id }}" onchange="collect_date({{ item.id }}, 'assignment')"> Assignment received!</input>
-             {% else %}
-                <p>Assignment due: {{ item.assignment_date }}</p>
-             {% endif %}
-            </td>
-        </tr>
-        </table>
-            Job Post: <a href="{{ item.url }}" target="_blank">{{ item.url }}</a>
-            <button type="button" class="btn btn-outline-secondary archive"  onclick="archive({{ item.id }})">X</button>
-        </form>
+    <div class="card">
+        <div class="card-header" id="headingOne"> <!-- How to make accordion feature work? -->
+            <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            {{ item.position }}, {{ item.company }}
+            </button>
+            </h2>
+            <a href="#" class="badge badge-info" id="edit_link">Edit Info</a>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="heading" data-parent="#accordionExample">
+            <div class="card-body">
+            <form method="post" action="current-apps">
+            <table>
+            <tr>
+                <td>Location: </td>
+                <td>
+                    {{ item.location }}
+                </td>
+            </tr>
+            <tr>
+                <td> Heard Back?</td>
+                <td>
+                    {% if item.called_back %}
+                        Called back!
+                    {% else %}
+                        No response
+                    {% endif %}
+                </td>
+                <td class="edit-db">
+                 {% if not item.called_back %}
+                    <input type="checkbox" name="call_back" value="{{ item.id }}" onchange="edit_data({{ item.id }}, 'called_back')"> Heard back!</input>
+                 {% else %}
+                     Congrats!
+                 {% endif %}
+                </td>
+            <tr>
+                <td>Interview?</td>
+                <td>
+                    {% if item.interview %}
+                        Interview scheduled!
+                    {% else %}
+                        No interview scheduled
+                    {% endif %}
+                </td>
+                <td>
+                    {% if not item.interview %}
+                    <input type="checkbox" name="call_back" value="{{ item.id }}" onchange="collect_date({{ item.id }}, 'interview')"> Invited to interview!</input>
+                    {% else %}
+                    <p>Interview date: {{ item.interview_date }}</p>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Assignment?</td>
+                <td>
+                    {% if item.assignment %}
+                        You have an assignment to do!
+                    {% else %}
+                        Not Yet
+                    {% endif %}
+                </td>
+                <td>
+                 {% if not item.assignment %}
+                    <input type="checkbox" name="call_back" value="{{ item.id }}" onchange="collect_date({{ item.id }}, 'assignment')"> Assignment received!</input>
+                 {% else %}
+                    <p>Assignment due: {{ item.assignment_date }}</p>
+                 {% endif %}
+                </td>
+            </tr>
+            </table>
+                Job Post: <a href="{{ item.url }}" target="_blank">{{ item.url }}</a>
+                <button type="button" class="btn btn-outline-secondary archive"  onclick="archive({{ item.id }})">X</button>
+            </form>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-     function collect_date(id, field){
-        console.log('data being collected')
-        let date = window.prompt("Congrats! Enter the date and time of you interview (MM/DD HH:MM")
-        edit_data(id, field, date)
-    }
-
-</script>

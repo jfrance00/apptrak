@@ -16,4 +16,15 @@ class Login(flask_wtf.FlaskForm):
     password = wtf.PasswordField('Password', [valid.InputRequired()])
     submit = wtf.SubmitField('Login')
 
+class PasswordResetEmail(flask_wtf.FlaskForm):
+    email = wtf.StringField('Email', [valid.Email()])
+    submit = wtf.SubmitField('Send Email')
+
+
+class PasswordReset(flask_wtf.FlaskForm):
+    password = wtf.PasswordField('Password', [valid.InputRequired()])
+    confirm_password = wtf.PasswordField('Confirm Password', [valid.EqualTo(password, message="Passwords must match")])
+
+
+
 

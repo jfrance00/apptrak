@@ -19,7 +19,7 @@ class JobApplication(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __json__(self):                                      # should make table into JSON object with the class below
-        return {'date_added': self.date_added, 'company': self.company, 'position': self.position,
+        return {'id': self.id, 'date_added': self.date_added, 'company': self.company, 'position': self.position,
                 'location': self.location, 'url': self.url, 'contact': self.contact, 'interview': self.interview,
                 'called_back': self.called_back, 'interview_date': self.interview_date, 'assignment': self.assignment,
                 'assignment_date': self.assignment_date, 'archived': self.archived, 'user_id': self.user_id}

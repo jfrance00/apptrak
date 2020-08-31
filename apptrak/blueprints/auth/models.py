@@ -47,8 +47,8 @@ class User(UserMixin, db.Model):
 
         return s_token
 
-    def update_password(self):
-        pass
+    def update_password(self, new_pass):
+        self.password = new_pass
 
     def change_email(self):
         pass
