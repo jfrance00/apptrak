@@ -1,5 +1,6 @@
 from ... import db, login_mgr, create_app
 from flask_login import UserMixin
+import flask
 import flask_login
 import time
 import jwt
@@ -22,10 +23,17 @@ class User(UserMixin, db.Model):
     @classmethod
     def authenticate(cls, email, password):
         user = cls.query.filter_by(email=email).first()
-        if user.password == password:
-            flask_login.login_user(user, remember=True)
-            return True
+        print(user)
+        if user:
+            if user.password == password:
+                flask_login.login_user(user, remember=True)
+                return True
+            else:
+                print(user.password)
+                flask.flash('Email or password incorrect', category='danger')
+                return False
         else:
+            flask.flash('Email or password incorrect', category='danger')
             return False
 
     def get_reset_password_token(self, expires_in=600):
@@ -50,8 +58,7 @@ class User(UserMixin, db.Model):
     def update_password(self, new_pass):
         self.password = new_pass
 
-    def change_email(self):
-        pass
+
 
 
 

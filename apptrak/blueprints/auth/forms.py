@@ -24,7 +24,7 @@ class PasswordResetEmail(flask_wtf.FlaskForm):
 class PasswordReset(flask_wtf.FlaskForm):
     password = wtf.PasswordField('Password', [valid.InputRequired()])
     confirm_password = wtf.PasswordField('Confirm Password', [valid.EqualTo(password, message="Passwords must match")])
-
+    submit = wtf.SubmitField('Change Password')
 
 
 

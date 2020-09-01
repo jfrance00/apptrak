@@ -2,7 +2,9 @@ import flask
 import flask_mail
 from flask_login import current_user
 from . import mail_mgr
+import jwt
 import os
+import datetime
 
 path = 'C:\\Users\\Julie\\Desktop\\apptrak'
 os.chdir(path)
@@ -21,9 +23,14 @@ def send_email(body):
     mail_mgr.send(msg)
 
 
-def send_password_link(email, token):
-    url = flask.url_for('blueprints.auth.views.reset_password')
-    payload = {token, app.config['SECRET_KEY']}
+def send_password_link(email, user):
+    payload = {
+        'user_id': user.id,
+        'expires': (datetime.datetime.now() + datetime.timedelta(hours=1)).timestamp()
+               }
+    token = jwt.encode(payload, app.config['SECRET_KEY'])
+    print(token)
+    url = flask.url_for('auth.reset_password', jwt_token=token, _external=True)
     msg = flask_mail.Message(
         subject="Password Reset",
         sender=app.config['MAIL_USERNAME'],
@@ -31,3 +38,4 @@ def send_password_link(email, token):
         body=f'Hello, To reset your password please click on the link: {url}'
     )
     mail_mgr.send(msg)
+    print("message sent")
