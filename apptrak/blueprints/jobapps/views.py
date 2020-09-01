@@ -39,7 +39,7 @@ def add_app():
 def display_apps():
     applications = current_user.job_applications
     applications_as_json = []
-    if flask.request.method == 'POST':
+    if flask.request.method == 'POST':                                # TODO move this code to sort file
         sort_field_list = flask.request.form.getlist('filter_field')
         num_fields_to_check = len(sort_field_list)
         if num_fields_to_check == 1:                                   # loop checks for all possible combinations of
@@ -69,21 +69,15 @@ def edit_app():
     return 'okay'
 
 
-@jobapps.route('/sort_apps', methods=['GET', 'POST'])
-def sort_by():
-    field = flask.request.json
-    user_apps = current_user.job_applications
-    sorted_applications = [app.__json__() for app in filter(lambda app: getattr(app, field), user_apps)]
-    for app in sorted_applications:
-        print(app['id'])
-    return flask.jsonify({'applications': sorted_applications})
-
-
-@jobapps.route('/archive')
+@jobapps.route('/archive', methods=['GET', 'POST'])
+@login_required
 def archive():
-    job_id = flask.request.json(0)
+    job_id = flask.request.json[0]
+    print(job_id)
     job_object = JobApplication.get_job(job_id)
-    job_object.archived = True
+    print(job_object)
+    job_object.edit('archived')
+    return 'archived'
 
 
 # @jobapps.route('/jobapp/<job_id>', methods=["POST", "GET"]) Page not in use - delete when positive won't be relevant

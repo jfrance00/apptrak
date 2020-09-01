@@ -1,5 +1,5 @@
 import flask
-from flask_login import logout_user, current_user
+from flask_login import logout_user, current_user, login_required
 from . import forms, auth
 from .models import User
 from ... import db
@@ -50,6 +50,13 @@ def login():
     return flask.render_template('login.html', form=form)
 
 
+@auth.route('/user-info', methods=['GET', 'POST'])
+@login_required
+def user_info():
+    user = current_user
+    return flask.render_template('user-info.html', user=user)
+
+
 @auth.route('/logout')
 def logout():
     logout_user()
@@ -79,4 +86,7 @@ def request_password():
 def reset_password(token):
     form = forms.PasswordReset()
     return 'password reset'
+
+
+
 

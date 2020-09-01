@@ -96,19 +96,7 @@
         let date = window.prompt("Congrats! Enter the date and time of you interview (MM/DD HH:MM")
         edit_data(id, field, date)
     }
-    {#$("#edit-db").append('<input type=date>' +#}     {# code to add element to html for cleaner display in the future #}
-    {#    '<input type=time>');#}
 
-
-    function archive(id){
-        $.ajax({
-        type : 'POST',
-        url : "{{url_for('jobapps.edit_app') }}",
-        data : JSON.stringify([id, field, item_date]),
-        contentType: 'application/json;charset=UTF-8',
-        success: function(response) {}
-        });
-    }
 
     function edit_data(id, field, item_date){
         $.ajax({
@@ -120,42 +108,16 @@
         });
     }
 
-    function sort_by_backend(field) {
-        console.log("backend called for " + field)
+
+    function archive(job_id){
         $.ajax({
-            type: 'POST',
-            url: "{{url_for('jobapps.display_apps') }}",
-            data: JSON.stringify(field),
-            contentType: 'application/json;charset=UTF-8',
-            success: function (response) {
-                {#console.log('success')#}
-                {#    $(".filtered_data").empty()#}
-                {#    $(".filtered_data").append(response.applications.forEach(element => create_application_card(element)))#}
-                {##}
-                {#    for (let i = 0; i < response.applications; i++) {#}
-                {#        $("#sorted_app_" + i).append(element => create_application_card(response.applications[element]))#}
-                {#    }#}
-                {#    $("#sorted_app_" + i).append(response.applications.forEach(element => create_application_card(element)))#}
-                {#    $("#accordionExample").append(create_application_card(response.applications[i]))#}
-                }
-            })
-        }
-
-    function create_application_card(item) {
-        console.log("create card function called")
-        {#let src = `{{ openfile('apptrak/blueprints/jobapps/templates/application_card.html')}}`#}
-        {#src = src.replace(/\s/g, '')#}
-        try {
-            var fn = jinja.compile(src).render();
-            console.log(fn);
-        } catch(e) {
-            console.error(e)
-            //todo: update error panel
-            return;
-        }
+        type : 'POST',
+        url : "{{url_for('jobapps.archive') }}",
+        data : JSON.stringify([job_id]),
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {}
+        });
     }
-
-
 
     </script>
 {% endblock %}
