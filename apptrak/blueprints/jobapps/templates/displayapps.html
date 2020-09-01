@@ -46,7 +46,7 @@
             <ul class="nav flex-column flex-sm-column" id="sidebar">
                 <form method="post">
                     <li>
-                        Sort by:
+                        Filter by:
                     </li>
                     <li class="nav-item">
                         <input class="sort_by" id="called_back"  name="filter_field" type="checkbox" value="called_back"> Responded</input>
@@ -75,13 +75,15 @@
             <p>Open applications:</p>
             <div class="accordion" id="accordionExample">
             {% for item in applications %}
-                <div id="sorted_app_{{ loop.index0 }}">
-                <div class="filtered_data">
-                {% with item = item %}
-                {% include 'application_card.html' %}
-                {% endwith %}
-                </div>
-                </div>
+                {% if not item.archived %}
+                    <div id="sorted_app_{{ loop.index0 }}">
+                        <div class="filtered_data">
+                            {% with item = item %}
+                            {% include 'application_card.html' %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                {% endif %}
             {% endfor %}
             </div>
          {% else %}

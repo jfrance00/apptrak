@@ -30,7 +30,7 @@ def register():
         )
         db.session.add(user)            #TODO write saving to db as User method
         db.session.commit()
-        flask.flash('User registered')
+        flask.flash('User registered', category="success")
         return flask.redirect('login')
     return flask.render_template('register.html', form=form)
 
@@ -71,10 +71,10 @@ def request_password():
         user = User.query.filter_by(email=email).first()
         if user:
             send_password_link(email, user)
-            flask.flash("Password reset email sent")
+            flask.flash("Password reset email sent", category="success")
             return flask.render_template('index.html')
         else:
-            flask.flash("No account with that email address")
+            flask.flash("No account with that email address", category="danger")
             return flask.redirect('login')
     return flask.render_template('password_request.html', form=form)
 
