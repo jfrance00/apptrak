@@ -31,6 +31,9 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+         <a class="navbar-brand" href="">
+             <img src="{{ url_for('static', filename='/images/logo.png') }}" width="30" height="30" alt="" loading="lazy">
+         </a>
       <a class="navbar-brand" href="#">AppTrak</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -66,7 +69,7 @@
     </nav>
 
 <div class="container-fluid dynamic-body">
-{#  <div class = "jumbotron w-75 m-auto">#}
+{#  <div class = "jumbotron w-75 m-auto site_content">#}
           {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 <ul class=flashes>

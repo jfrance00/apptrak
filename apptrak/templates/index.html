@@ -2,7 +2,43 @@
 
 {% block title %} Home {% endblock %}
 
+{% block localcss %}
+    <style>
+    .index_banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 15em;
+        height: 7em;
+        }
+     .index_banner index_text {
+        padding: 200px;
+        position: relative;
+        z-index: 2;
+        opacity: 1;
+        }
+    img {
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        position: absolute;
+        opacity: 0.2;
+        }
+
+
+    </style>
+
+{% endblock %}
+
 {% block body %}
-<h2>Homepage</h2>
+
+<div class="index_banner">
+    <img src="{{ url_for('static',filename = '/images/logo.png') }}">
+    <div class="index_text>">
+        <h3> Trailing jobs is hard. AppTrak helps you track them. </h3>
+        <h4> Sign up or login to upload and track your active applications</h4>
+    </div>
+</div>
+
 
 {% endblock %}

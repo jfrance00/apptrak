@@ -29,3 +29,14 @@ def quad_sorting_feature(sort_list):
                                           and getattr(app, sort_list[1]) and getattr(app, sort_list[2])
                                           and getattr(app, sort_list[3]), user_apps)]
     return sorted_applications
+
+
+def remove_archived(all_app):
+    active_apps = []
+    for item in all_app:
+        if not item.archived:
+            print(f'active item: {item}')
+            item_as_json = item.__json__()
+            active_apps.append(item_as_json)
+    return active_apps
+

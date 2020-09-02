@@ -4,7 +4,7 @@ from . import jobapps, forms
 from .models import JobApplication
 from ..auth.models import User
 from ... import db
-from ...sort_data import single_sorting_feature, double_sorting_feature, triple_sorting_feature, quad_sorting_feature
+from ...sort_data import single_sorting_feature, double_sorting_feature, triple_sorting_feature, quad_sorting_feature, remove_archived
 from flask_login import current_user, login_required
 import datetime
 
@@ -30,7 +30,7 @@ def add_app():
             user_id=current_user.id
             )
         JobApplication.save(jobapp)
-        return flask.redirect('index')
+        return flask.redirect('/current-apps')
     return flask.render_template('uploadapp.html', form=form)
 
 
@@ -38,6 +38,7 @@ def add_app():
 @login_required
 def display_apps():
     applications = current_user.job_applications
+    active_applications = remove_archived(applications)
     applications_as_json = []
     if flask.request.method == 'POST':                                # TODO move this code to sort file
         sort_field_list = flask.request.form.getlist('filter_field')
@@ -54,33 +55,45 @@ def display_apps():
     for item in applications:
         single_app = item.__json__()
         applications_as_json.append(single_app)
-    return flask.render_template('displayapps.html', applications=applications_as_json)
+    return flask.render_template('displayapps.html', applications=active_applications)
 
 
 @jobapps.route('/edit-app', methods=['GET', 'POST'])
 @login_required
 def edit_app():
-    job_id = flask.request.json[0]               # gets id from Ajax call
-    field = flask.request.json[1]                # gets data field to be updated (interview, assignment, call)
-    date = flask.request.json[2]                 # gets user input date
+    job_id = flask.request.json[0]
+    field = flask.request.json[1]
+    date = flask.request.json[2]
     job_object = JobApplication.get_job(job_id)
-    job_object.edit(field)                       # class method to update db
-    job_object.add_date(field, date)             # class method to add date to db
-    return 'okay'
+    job_object.mark_true(field)                        # class method to update db
+    job_object.add_date(field, date)              # class method to add date to db
+    return 'data edited'
 
 
 @jobapps.route('/archive', methods=['GET', 'POST'])
 @login_required
 def archive():
     job_id = flask.request.json[0]
-    print(job_id)
     job_object = JobApplication.get_job(job_id)
-    print(job_object)
-    job_object.edit('archived')
+    job_object.mark_true('archived')
     return 'archived'
 
 
-# @jobapps.route('/jobapp/<job_id>', methods=["POST", "GET"]) Page not in use - delete when positive won't be relevant
-# def app_details(job_id):
-#     job = JobApplication.get_job(job_id)
-#     return flask.render_template('jobdetails.html', job=job)
+@jobapps.route('/total-app-edit/<app_id>', methods=['GET', 'POST'])
+@login_required
+def total_app_edit(app_id):
+    job_object = JobApplication.get_job(app_id)
+    if flask.request.method == 'POST':
+        job_object.url = flask.request.form.get('url')
+        job_object.company = flask.request.form['company']
+        job_object.position = flask.request.form['position']
+        job_object.location = flask.request.form['location']
+        job_object.contact = flask.request.form['contact']
+        # job_object.interview = job_object.check_to_true(flask.request.form['interview'])
+        job_object.interview_date = flask.request.form.get('interview_date')
+        # job_object.assignment = job_object.check_to_true_false('assignment', flask.request.form.get('assignment'))
+        job_object.assignment_date = flask.request.form.get('assignment_date')
+        job_object.archived = job_object.check_to_true_false('archived', flask.request.form.get('archived'))
+        job_object.save()
+        return flask.redirect('/current-apps')
+    return flask.render_template('edit-app-info.html', app=job_object)

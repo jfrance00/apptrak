@@ -3,24 +3,23 @@
 {% block title %} Sign Up {% endblock %}
 
 {% block body %}
-
+    <h2 class="card_wrapper">Sign Up!</h2>
     <form action="" method="POST">
-    {{ form.name.label }}
-    {{ form.name() }}
-
-    {{ form.username.label }}
-    {{ form.username() }}
-
-    {{ form.email.label }}
-    {{ form.email() }}
-
-    {{ form.password.label }}
-    {{ form.password() }}
-
-    {{ form.confirm_pass.label }}
-    {{ form.confirm_pass() }}
-
-    {{ form.submit() }}
+        <div class="card_wrapper">
+            <div class="card d-flex justify-content-center" style="width: 26rem;">
+                <div class="card-header">
+                    <b>Make your account below</b>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ form.name.label }} : {{ form.name() }}</li>
+                    <li class="list-group-item">{{ form.username.label }} : {{ form.username() }}</li>
+                    <li class="list-group-item">{{ form.email.label }} : {{ form.email() }}</li>
+                    <li class="list-group-item">{{ form.password.label }} : {{ form.password() }}</li>
+                    <li class="list-group-item">{{ form.confirm_pass.label }} : {{ form.confirm_pass() }}</li>
+                    <li class="list-group-item">{{ form.submit() }}</li>
+                </ul>
+            </div>
+        </div>
     </form>
 
 {% endblock %}

@@ -4,19 +4,21 @@
 
 {% block body %}
 
-    <h2>Please login:</h2>
+    <h2 class="card_wrapper">Please login:</h2>
     <form method="post">
-
-        {{ form.email.label }}
-        {{ form.email() }}
-
-        {{ form.password.label }}
-        {{ form.password() }}
-
-        {{ form.submit() }}
-
+       <div class="card_wrapper">
+            <div class="card d-flex justify-content-center" style="width: 26rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ form.email.label }}  :   {{ form.email() }}</li>
+                    <li class="list-group-item">{{ form.password.label }}  :   {{ form.password() }}</li>
+                    <li class="list-group-item"> {{ form.submit() }}</li>
+                    <li class="list-group-item">New here?, <a href="{{ url_for('auth.register') }}">Signup</a> </li>
+                    <li class="list-group-item">Forgot something? Like your <a href="{{ url_for('auth.request_password')}}">Password?</a></li>
+                </ul>
+            </div>
+        </div>
     </form>
-    <h4>New here?, <a href="{{ url_for('auth.register') }}">Signup</a> </h4>
-    <h4>Forgot something? Like your <a href="{{ url_for('auth.request_password')}}">Password?</a> </h4>
+
+
 
 {% endblock %}

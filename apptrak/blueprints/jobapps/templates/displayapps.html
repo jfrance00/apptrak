@@ -12,6 +12,7 @@
            padding: 1em;
         }
         #sidebar {
+            z-index: -1;
             width: 12%;
             padding: 1em;
             position: fixed;
@@ -75,7 +76,6 @@
             <p>Open applications:</p>
             <div class="accordion" id="accordionExample">
             {% for item in applications %}
-                {% if not item.archived %}
                     <div id="sorted_app_{{ loop.index0 }}">
                         <div class="filtered_data">
                             {% with item = item %}
@@ -83,11 +83,10 @@
                             {% endwith %}
                         </div>
                     </div>
-                {% endif %}
             {% endfor %}
             </div>
          {% else %}
-            <p> You have sent no applications</p>
+            <p> You have no applications in this category</p>
         {% endif %}
     </div>
 </div>

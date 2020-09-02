@@ -1,4 +1,4 @@
-from ... import db, login_mgr, create_app
+from ... import db, login_mgr
 from flask_login import UserMixin
 import flask
 import flask_login
@@ -6,10 +6,6 @@ import time
 import jwt
 from ..jobapps.models import JobApplication
 
-
-@login_mgr.user_loader
-def load_user(user_id):
-    return User.query.get(user_id)
 
 
 class User(UserMixin, db.Model):
@@ -36,27 +32,33 @@ class User(UserMixin, db.Model):
             flask.flash('Email or password incorrect', category='danger')
             return False
 
-    def get_reset_password_token(self, expires_in=600):
-        timeout = time.time() + expires_in
-        payload = {
-            'reset_password': self.id,
-            'exp': timeout
-        }
-
-        # Get the secret key from config
-        app = create_app()
-        secret_key = app.config['SECRET_KEY']
-
-        # Create the token
-        token = jwt.encode(payload, secret_key, algorithm="HS256")
-
-        # Turn it to string
-        s_token = token.decode('utf-8')
-
-        return s_token
+    # def get_reset_password_token(self, expires_in=600):
+    #     timeout = time.time() + expires_in
+    #     payload = {
+    #         'reset_password': self.id,
+    #         'exp': timeout
+    #     }
+    #
+    #     # Get the secret key from config
+    #     secret_key = app.config['SECRET_KEY']
+    #
+    #     # Create the token
+    #     token = jwt.encode(payload, secret_key, algorithm="HS256")
+    #
+    #     # Turn it to string
+    #     s_token = token.decode('utf-8')
+    #
+    #     return s_token
 
     def update_password(self, new_pass):
         self.password = new_pass
+        db.session.commit()
+
+
+@login_mgr.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
+
 
 
 

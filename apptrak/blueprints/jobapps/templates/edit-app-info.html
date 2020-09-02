@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit App {% endblock %}
+
+{% block body %}
+
+    <h2 class="card_wrapper">Need to make changes to this entry?</h2>
+
+     <form action="/total-app-edit/{{ app.id }}" method="post">
+        <div class="card_wrapper">
+            <div class="card d-flex justify-content-center" style="width: 28rem;">
+                <div class="card-header">
+                    <b>Edit application for: {{ app.position }}, {{ app.company }}</b>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">URL:     <input type="text" id="url" name="url" value="{{ app.url }}"></li>
+                    <li class="list-group-item">Company: <input type="text" id="company" name="company" value="{{ app.company }}"></li>
+                    <li class="list-group-item">Position: <input type="text" id="position" name="position" value="{{ app.position }}"></li>
+                    <li class="list-group-item">Location: <input type="text" id="location" name="location" value="{{ app.location }}"></li>
+                    <li class="list-group-item">contact: <input type="text" id="contact" name="contact" value="{{ app.contact }}"></li>
+{#                    <li class="list-group-item">Interview: <input type="checkbox" id="interview" name="interview" {% if app.called_back %}checked{% endif %}></li>#}
+                    <li class="list-group-item">Interview Date: <input type="text" id="interview_date" name="interview_date" value="{{ app.interview_date }}"> </li>
+{#                    <li class="list-group-item">Assignment: <input type="checkbox" id="assignment" name="assignment" {% if app.called_back %}checked{% endif %}> </li>#}
+                    <li class="list-group-item">Assignment Date: <input type="text" id="assignment_date" name="assignment_date" value="{{ app.assignment_date }}"></li>
+                    <li class="list-group-item">Archived: <input type="checkbox" id="archived" name="archived" {% if app.called_back %}checked{% endif %}></li>
+                    <li class="list-group-item"><input type="submit" value="Save Changes"> </li>
+                 </ul>
+             </div>
+        </div>
+    </form>
+
+
+{% endblock %}

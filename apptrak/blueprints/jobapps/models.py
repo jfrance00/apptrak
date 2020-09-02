@@ -10,12 +10,12 @@ class JobApplication(db.Model):
     url = db.Column(db.String, unique=True)
     contact = db.Column(db.String)
     interview = db.Column(db.Boolean)
-    called_back = db.Column(db.Boolean)
+    called_back = db.Column(db.Boolean, default=False)
     interview_date = db.Column(db.String)
-    assignment = db.Column(db.Boolean)
+    assignment = db.Column(db.Boolean, default=False)
     assignment_date = db.Column(db.String)
-    archived = db.Column(db.Boolean)
-    top_job = db.Column(db.Boolean)
+    archived = db.Column(db.Boolean, default=False)
+    top_job = db.Column(db.Boolean, default=False)                            # TODO irrelevent column, delete when upgrading db
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __json__(self):                                      # should make table into JSON object with the class below
@@ -28,7 +28,7 @@ class JobApplication(db.Model):
         db.session.add(self)
         db.session.commit()
 
-    def edit(self, field):
+    def mark_true(self, field):              # to edit on click (call back, interview, assignment)
         setattr(self, field, True)
         db.session.commit()
 
@@ -48,6 +48,11 @@ class JobApplication(db.Model):
         attribute = getattr(self, field)
         return attribute
 
+    def check_to_true_false(self, field, value):
+        if value == 'on':
+            return True
+        else:
+            return None
 
 
 
