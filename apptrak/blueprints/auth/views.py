@@ -7,14 +7,15 @@ from ...mail_handler import send_password_link
 import jwt
 import datetime
 import os
+from ....wsgi import app
 
 
-path = 'C:\\Users\\Julie\\Desktop\\apptrak'
-os.chdir(path)
-
-from wsgi import app
-
-os.chdir('C:\\Users\\Julie\\Desktop\\apptrak\\apptrak\\blueprints\\auth')
+# path = 'C:\\Users\\Julie\\Desktop\\apptrak'
+# os.chdir(path)
+#
+# from wsgi import app
+#
+# os.chdir('C:\\Users\\Julie\\Desktop\\apptrak\\apptrak\\blueprints\\auth')
 
 
 @auth.route('/register', methods=['GET', 'POST'])

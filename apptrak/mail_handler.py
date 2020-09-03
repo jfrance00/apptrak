@@ -6,12 +6,14 @@ import jwt
 import os
 import datetime
 
-path = 'C:\\Users\\Julie\\Desktop\\apptrak'
-os.chdir(path)
+from ..wsgi import app
 
-from wsgi import app
-
-os.chdir("C:\\Users\\Julie\\Desktop\\apptrak\\apptrak")
+# path = 'C:\\Users\\Julie\\Desktop\\apptrak'
+# os.chdir(path)
+#
+# from wsgi import app
+#
+# os.chdir("C:\\Users\\Julie\\Desktop\\apptrak\\apptrak")
 
 
 def send_email(body):
