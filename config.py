@@ -25,7 +25,7 @@ class DevConfig(Config):
 
 class ProdConfig(Config):
     SECRET_KEY = os.urandom(24)
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     DEBUG = False
 
 
