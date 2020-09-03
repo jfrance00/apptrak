@@ -13,10 +13,10 @@ class Config:
 class DevConfig(Config):
     SECRET_KEY = 'iamareallylongsecretkey'  # TODO change to os.urandom(24)
 
-    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']    # old link: "sqlite:///" + os.path.join(basedir, "app.db")
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')    # old link: "sqlite:///" + os.path.join(basedir, "app.db")
     # DATABASE_URL = os.environ['DATABASE_URL']   example code found on the internet
 
-    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    conn = psycopg2.connect('DATABASE_URL', sslmode='require')
 
     MAIL_SERVER = "smtp.gmail.com"
     MAIL_PORT = 587                   # if use SSL instead change to 465
