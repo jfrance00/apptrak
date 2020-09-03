@@ -34,9 +34,6 @@ def create_app(default_env='production'):
     login_mgr.init_app(app)
     mail_mgr.init_app(app)
 
-    with app.app_context():
-        db.create_all()   # Create sql tables for our data models
-
     app.register_blueprint(auth)
     app.register_blueprint(landing)
     app.register_blueprint(jobapps)
