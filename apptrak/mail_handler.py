@@ -5,8 +5,8 @@ from . import mail_mgr
 import jwt
 import os
 import datetime
+from flask import current_app
 
-from ..wsgi import app
 
 # path = 'C:\\Users\\Julie\\Desktop\\apptrak'
 # os.chdir(path)
@@ -30,12 +30,12 @@ def send_password_link(email, user):
         'user_id': user.id,
         'expires': (datetime.datetime.now() + datetime.timedelta(hours=1)).timestamp()
                }
-    token = jwt.encode(payload, app.config['SECRET_KEY'])
+    token = jwt.encode(payload, current_app.config['SECRET_KEY'])
     print(token)
     url = flask.url_for('auth.reset_password', jwt_token=token, _external=True)
     msg = flask_mail.Message(
         subject="Password Reset",
-        sender=app.config['MAIL_USERNAME'],
+        sender=current_app.config['MAIL_USERNAME'],
         recipients=[email],
         body=f'Hello, To reset your password please click on the link: {url}'
     )

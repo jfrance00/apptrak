@@ -17,7 +17,7 @@ login_mgr = flask_login.LoginManager()
 mail_mgr = flask_mail.Mail()
 
 
-def create_app(default_env='development'):
+def create_app(default_env='production'):
     from config import config
 
     from . import views
@@ -35,7 +35,6 @@ def create_app(default_env='development'):
     mail_mgr.init_app(app)
 
     with app.app_context():
-        from . import views  # Import routes
         db.create_all()   # Create sql tables for our data models
 
     app.register_blueprint(auth)

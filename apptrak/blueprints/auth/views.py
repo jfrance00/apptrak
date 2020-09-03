@@ -7,8 +7,7 @@ from ...mail_handler import send_password_link
 import jwt
 import datetime
 import os
-from ....wsgi import app
-
+from flask import current_app
 
 # path = 'C:\\Users\\Julie\\Desktop\\apptrak'
 # os.chdir(path)
@@ -82,7 +81,7 @@ def request_password():
 
 @auth.route('/reset-password/<jwt_token>', methods=['GET', 'POST'])
 def reset_password(jwt_token):
-    payload = jwt.decode(jwt_token, app.config['SECRET_KEY'])
+    payload = jwt.decode(jwt_token, current_app.config['SECRET_KEY'])
     user = User.query.filter_by(id=payload['user_id']).first()
 
     if datetime.datetime.now().timestamp() < payload['expires']:      # loop checks if token good

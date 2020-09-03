@@ -13,7 +13,7 @@ class Config:
 class DevConfig(Config):
     SECRET_KEY = 'iamareallylongsecretkey'  # TODO change to os.urandom(24)
 
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')    # old link: "sqlite:///" + os.path.join(basedir, "app.db")
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "app.db")
 
     MAIL_SERVER = "smtp.gmail.com"
     MAIL_PORT = 587                   # if use SSL instead change to 465
