@@ -1,0 +1,502 @@
+2020-09-03T09:56:43.562405+00:00 app[web.1]: [2020-09-03 09:56:43 +0000] [12] [INFO] Handling signal: term
+2020-09-03T09:56:43.641227+00:00 heroku[web.1]: Process exited with status 143
+2020-09-03T14:20:51.029427+00:00 heroku[web.1]: Unidling
+2020-09-03T14:20:51.043563+00:00 heroku[web.1]: State changed from down to starting
+2020-09-03T14:20:55.239199+00:00 heroku[web.1]: Starting process with command `flask db upgrade; gunicorn wsgi:app`
+2020-09-03T14:20:59.386692+00:00 app[web.1]: /app/.heroku/python/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py:834: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+2020-09-03T14:20:59.386709+00:00 app[web.1]: 'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+2020-09-03T14:20:59.405135+00:00 app[web.1]: Error: Path doesn't exist: '/app/migrations'.  Please use the 'init' command to create a new scripts folder.
+2020-09-03T14:20:59.796458+00:00 app[web.1]: [2020-09-03 14:20:59 +0000] [12] [INFO] Starting gunicorn 20.0.4
+2020-09-03T14:20:59.797068+00:00 app[web.1]: [2020-09-03 14:20:59 +0000] [12] [INFO] Listening at: http://0.0.0.0:20861 (12)
+2020-09-03T14:20:59.797175+00:00 app[web.1]: [2020-09-03 14:20:59 +0000] [12] [INFO] Using worker: sync
+2020-09-03T14:20:59.801217+00:00 app[web.1]: [2020-09-03 14:20:59 +0000] [15] [INFO] Booting worker with pid: 15
+2020-09-03T14:20:59.845160+00:00 app[web.1]: [2020-09-03 14:20:59 +0000] [16] [INFO] Booting worker with pid: 16
+2020-09-03T14:20:59.906154+00:00 heroku[web.1]: State changed from starting to up
+2020-09-03T14:21:00.411404+00:00 app[web.1]: /app/.heroku/python/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py:834: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+2020-09-03T14:21:00.411450+00:00 app[web.1]: 'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+2020-09-03T14:21:00.431760+00:00 app[web.1]: /app/.heroku/python/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py:834: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+2020-09-03T14:21:00.431761+00:00 app[web.1]: 'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+2020-09-03T14:21:01.124815+00:00 app[web.1]: 10.95.209.15 - - [03/Sep/2020:14:21:01 +0000] "GET / HTTP/1.1" 200 3394 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:01.125285+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=4e3ffd6c-d021-4e30-a211-b4b51436dfc6 fwd="79.177.99.9" dyno=web.1 connect=1ms service=26ms status=200 bytes=3556 protocol=https
+2020-09-03T14:21:01.343520+00:00 app[web.1]: 10.97.137.170 - - [03/Sep/2020:14:21:01 +0000] "GET / HTTP/1.1" 200 3394 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:01.346819+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=6d296519-b373-4011-a94b-590fd6defe49 fwd="79.177.99.9" dyno=web.1 connect=0ms service=31ms status=200 bytes=3556 protocol=https
+2020-09-03T14:21:04.000733+00:00 app[web.1]: 10.97.137.170 - - [03/Sep/2020:14:21:03 +0000] "GET /login HTTP/1.1" 200 3618 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:04.001885+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=8460c154-4c50-422f-8d70-134da1f2eb19 fwd="79.177.99.9" dyno=web.1 connect=0ms service=10ms status=200 bytes=3965 protocol=https
+2020-09-03T14:21:06.987944+00:00 app[web.1]: <User 1>
+2020-09-03T14:21:06.992936+00:00 app[web.1]: 10.97.137.170 - - [03/Sep/2020:14:21:06 +0000] "POST /login HTTP/1.1" 302 227 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:06.993605+00:00 heroku[router]: at=info method=POST path="/login" host=apptrak20.herokuapp.com request_id=dc08e07f-7582-4dcd-b0e1-ed7defb92121 fwd="79.177.99.9" dyno=web.1 connect=0ms service=71ms status=302 bytes=964 protocol=https
+2020-09-03T14:21:07.186238+00:00 app[web.1]: 10.97.137.170 - - [03/Sep/2020:14:21:07 +0000] "GET /user-info HTTP/1.1" 200 3661 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:07.186971+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=752ea266-2bc0-4b6c-8b63-5623195cc15c fwd="79.177.99.9" dyno=web.1 connect=0ms service=17ms status=200 bytes=3837 protocol=https
+2020-09-03T14:21:10.728637+00:00 app[web.1]: 10.97.137.170 - - [03/Sep/2020:14:21:10 +0000] "GET /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:10.729611+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=8d6694af-9706-4445-bb28-a631f40591af fwd="79.177.99.9" dyno=web.1 connect=2ms service=14ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:07.192153+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T14:24:07.192203+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T14:24:07.218793+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:07 +0000] "GET /current-apps HTTP/1.1" 200 11385 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:07.219364+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=785fc875-76a9-49fe-8144-8f66325e2c7f fwd="79.177.99.9" dyno=web.1 connect=1ms service=35ms status=200 bytes=11562 protocol=https
+2020-09-03T14:24:14.222992+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T14:24:14.223024+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T14:24:14.223556+00:00 app[web.1]: [<JobApplication 1>, <JobApplication 2>]
+2020-09-03T14:24:14.223629+00:00 app[web.1]: [{'id': 1, 'date_added': datetime.date(2020, 9, 3), 'company': 'Kela Group', 'position': 'Cyber Analyst', 'location': 'Tel Aviv', 'url': 'www.ke-la.com', 'contact': 'noy@kkela-group.com', 'interview': True, 'called_back': True, 'interview_date': None, 'assignment': True, 'assignment_date': None, 'archived': False, 'user_id': 1}]
+2020-09-03T14:24:14.227238+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:14 +0000] "POST /current-apps HTTP/1.1" 200 8605 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:14.227698+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=be6cc07e-5dd5-4af5-8912-4b5aabe77259 fwd="79.177.99.9" dyno=web.1 connect=1ms service=14ms status=200 bytes=8781 protocol=https
+2020-09-03T14:24:18.041979+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:18 +0000] "POST /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:18.045248+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=b1ddfbfa-2996-4606-94fc-518211daf8a6 fwd="79.177.99.9" dyno=web.1 connect=2ms service=6ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:22.495291+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:22 +0000] "GET /current-apps HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:22.496557+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=59eef9a6-9972-49fc-b5d2-516ea4d7cec6 fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:25.220877+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:25 +0000] "GET /current-apps HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:25.221080+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=b5be4a2d-0bc2-4eae-8d9f-0df3906e5837 fwd="79.177.99.9" dyno=web.1 connect=1ms service=6ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:30.122959+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:30 +0000] "GET / HTTP/1.1" 200 3923 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:30.123860+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=65d01fc2-62ab-4081-b30e-1c0ff1e565bd fwd="79.177.99.9" dyno=web.1 connect=1ms service=9ms status=200 bytes=4099 protocol=https
+2020-09-03T14:24:33.737394+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:33 +0000] "GET /add-app HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:33.737880+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=6f9e3d59-9fde-4d8e-afca-b068f2639644 fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:35.727398+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:35 +0000] "GET /add-app HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:35.727716+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=588c24b8-facc-46aa-a0bc-2fbe63b15a43 fwd="79.177.99.9" dyno=web.1 connect=1ms service=5ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:37.814424+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:37 +0000] "GET /add-app HTTP/1.1" 200 5635 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:37.815116+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=272b40a4-bbe2-492d-a1ac-fd3d16ae3193 fwd="79.177.99.9" dyno=web.1 connect=1ms service=24ms status=200 bytes=5811 protocol=https
+2020-09-03T14:54:46.851884+00:00 app[web.1]: 10.7.242.198 - - [03/Sep/2020:14:54:46 +0000] "GET /add-app HTTP/1.1" 200 5635 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:54:46.857067+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=e47c2f05-4f0b-4698-b77e-a387ce75779f fwd="79.177.99.9" dyno=web.1 connect=0ms service=13ms status=200 bytes=5811 protocol=https
+2020-09-03T14:54:47.865104+00:00 app[web.1]: 10.7.242.198 - - [03/Sep/2020:14:54:47 +0000] "GET /user-info HTTP/1.1" 200 3661 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:54:47.869125+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=81f182e0-4c54-402c-9bec-8f31e5b982fc fwd="79.177.99.9" dyno=web.1 connect=0ms service=12ms status=200 bytes=3837 protocol=https
+2020-09-03T14:54:52.655664+00:00 app[web.1]: 10.7.242.198 - - [03/Sep/2020:14:54:52 +0000] "GET /logout HTTP/1.1" 302 217 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:54:52.659488+00:00 heroku[router]: at=info method=GET path="/logout" host=apptrak20.herokuapp.com request_id=119787ac-2c89-44e6-adfa-273f2cd59b13 fwd="79.177.99.9" dyno=web.1 connect=0ms service=11ms status=302 bytes=682 protocol=https
+2020-09-03T14:54:52.824434+00:00 app[web.1]: 10.7.242.198 - - [03/Sep/2020:14:54:52 +0000] "GET /index HTTP/1.1" 200 3394 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:54:52.828505+00:00 heroku[router]: at=info method=GET path="/index" host=apptrak20.herokuapp.com request_id=75e7a87a-40ec-4213-85f0-2f8695625eab fwd="79.177.99.9" dyno=web.1 connect=0ms service=3ms status=200 bytes=3556 protocol=https
+2020-09-03T15:15:46.482644+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=8185dd92-4520-4d08-9adf-e1ae91467e99 fwd="79.177.99.9" dyno=web.1 connect=1ms service=11ms status=200 bytes=3965 protocol=https
+2020-09-03T15:15:46.483638+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:15:46 +0000] "GET /login HTTP/1.1" 200 3618 "https://apptrak20.herokuapp.com/index" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:15:51.802319+00:00 app[web.1]: <User 1>
+2020-09-03T15:15:51.805620+00:00 heroku[router]: at=info method=POST path="/login" host=apptrak20.herokuapp.com request_id=9732de87-b4f0-4708-a8d5-6540bbc36e70 fwd="79.177.99.9" dyno=web.1 connect=1ms service=83ms status=302 bytes=963 protocol=https
+2020-09-03T15:15:51.806822+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:15:51 +0000] "POST /login HTTP/1.1" 302 227 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:15:51.984729+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=430e10f2-a952-46db-b18b-cbde449d3194 fwd="79.177.99.9" dyno=web.1 connect=1ms service=22ms status=200 bytes=3837 protocol=https
+2020-09-03T15:15:51.990383+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:15:51 +0000] "GET /user-info HTTP/1.1" 200 3661 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:26.278866+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=78d328bb-303e-4a78-b016-9e385eb885f1 fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T15:16:26.279860+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:26 +0000] "GET /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:29.653784+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=9da81da2-1cc9-4927-ba5b-5a45378cf4a3 fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T15:16:29.654834+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:29 +0000] "GET /current-apps HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:31.880507+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T15:16:31.880551+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T15:16:32.025175+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=b8821516-0138-4208-9a5a-9db80c891121 fwd="79.177.99.9" dyno=web.1 connect=1ms service=154ms status=200 bytes=11562 protocol=https
+2020-09-03T15:16:32.026219+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:32 +0000] "GET /current-apps HTTP/1.1" 200 11385 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:48.329337+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T15:16:48.329353+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T15:16:48.329883+00:00 app[web.1]: [<JobApplication 1>, <JobApplication 2>]
+2020-09-03T15:16:48.329971+00:00 app[web.1]: [{'id': 1, 'date_added': datetime.date(2020, 9, 3), 'company': 'Kela Group', 'position': 'Cyber Analyst', 'location': 'Tel Aviv', 'url': 'www.ke-la.com', 'contact': 'noy@kkela-group.com', 'interview': True, 'called_back': True, 'interview_date': None, 'assignment': True, 'assignment_date': None, 'archived': False, 'user_id': 1}]
+2020-09-03T15:16:48.333444+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=ec79cdc2-1f97-4caf-a003-224645fc5ea6 fwd="79.177.99.9" dyno=web.1 connect=2ms service=16ms status=200 bytes=8781 protocol=https
+2020-09-03T15:16:48.333722+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:48 +0000] "POST /current-apps HTTP/1.1" 200 8605 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:51.898541+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=fbbfb169-1715-4204-8a0a-7b4efefb2140 fwd="79.177.99.9" dyno=web.1 connect=1ms service=4ms status=401 bytes=509 protocol=https
+2020-09-03T15:16:51.899896+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:51 +0000] "POST /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:54.223688+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T15:16:54.223732+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T15:16:54.226406+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=9c09c05b-052a-4a06-9603-688393e00c0e fwd="79.177.99.9" dyno=web.1 connect=1ms service=14ms status=200 bytes=11562 protocol=https
+2020-09-03T15:16:54.227417+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:54 +0000] "GET /current-apps HTTP/1.1" 200 11385 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:17:45.670163+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=912cdf47-cde5-467f-b361-ea020c21292f fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T15:17:45.671229+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:17:45 +0000] "POST /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:18:13.800967+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=9a72d83a-14c7-439d-b4e1-ca1f67a0a756 fwd="79.177.99.9" dyno=web.1 connect=1ms service=4ms status=401 bytes=509 protocol=https
+2020-09-03T15:18:13.802246+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:18:13 +0000] "GET /current-apps HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:18:24.282753+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T15:18:24.287436+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T15:18:24.299004+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:18:24 +0000] "GET /current-apps HTTP/1.1" 200 11385 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:18:24.302306+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=545fc9f3-d9d7-487e-acd5-5817cb0b54cb fwd="79.177.99.9" dyno=web.1 connect=1ms service=41ms status=200 bytes=11562 protocol=https
+2020-09-03T15:18:32.131255+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=14ef00b9-65d2-4345-8e09-0636c0399135 fwd="79.177.99.9" dyno=web.1 connect=1ms service=4ms status=401 bytes=509 protocol=https
+2020-09-03T15:18:32.132604+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:18:32 +0000] "POST /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+Terminate batch job (Y/N)? exit()
+Terminate batch job (Y/N)? 
+2020-09-03T08:34:41.142353+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=a3e50998-25b7-4250-a766-8aab9e10fdc6 fwd="79.177.99.9" dyno=web.1 connect=1ms service=8ms status=200 bytes=3556 protocol=https
+2020-09-03T08:34:41.143406+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:34:41 +0000] "GET / HTTP/1.1" 200 3394 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:34:44.041223+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=bfe2e5a9-1596-4f2c-b7f3-7345eb93f54b fwd="79.177.99.9" dyno=web.1 connect=1ms service=10ms status=200 bytes=4323 protocol=https
+2020-09-03T08:34:44.041916+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:34:44 +0000] "GET /login HTTP/1.1" 200 4147 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:34:46.684169+00:00 app[web.1]: <User 1>
+2020-09-03T08:34:46.691195+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:34:46 +0000] "POST /login HTTP/1.1" 302 227 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:34:46.696565+00:00 heroku[router]: at=info method=POST path="/login" host=apptrak20.herokuapp.com request_id=78888312-8d3f-4e39-bf2f-8fc67d03cd10 fwd="79.177.99.9" dyno=web.1 connect=1ms service=18ms status=302 bytes=964 protocol=https
+2020-09-03T08:34:46.867331+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=ca917d87-309c-4bff-8ab6-2e686c2a5e69 fwd="79.177.99.9" dyno=web.1 connect=2ms service=14ms status=200 bytes=3837 protocol=https
+2020-09-03T08:34:46.868567+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:34:46 +0000] "GET /user-info HTTP/1.1" 200 3661 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:34:49.843112+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T08:34:49.843177+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T08:34:49.847120+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=4d1a3f4c-fbb4-4b8a-a6c7-d3d87d87ba48 fwd="79.177.99.9" dyno=web.1 connect=1ms service=16ms status=200 bytes=11562 protocol=https
+2020-09-03T08:34:49.848052+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:34:49 +0000] "GET /current-apps HTTP/1.1" 200 11385 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:34:53.278146+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=bacaf1f9-d9ff-45dd-ab22-2fbb96ef25f0 fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T08:34:53.279324+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:34:53 +0000] "GET /add-app HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:34:55.916201+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=0acdf0b5-f45a-43cb-a5cf-98787266b129 fwd="79.177.99.9" dyno=web.1 connect=1ms service=5ms status=401 bytes=509 protocol=https
+2020-09-03T08:34:55.917507+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:34:55 +0000] "GET /add-app HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:34:59.241587+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=ce03ebb9-f9f5-436e-9093-8d97fe832b5c fwd="79.177.99.9" dyno=web.1 connect=1ms service=4ms status=401 bytes=509 protocol=https
+2020-09-03T08:34:59.242661+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:34:59 +0000] "GET /add-app HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:35:03.212236+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=b4329b10-27b0-4dd4-a3ef-b631daaf9a31 fwd="79.177.99.9" dyno=web.1 connect=1ms service=5ms status=200 bytes=3556 protocol=https
+2020-09-03T08:35:03.213505+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:35:03 +0000] "GET / HTTP/1.1" 200 3394 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:35:05.906556+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=10a3eb58-d183-4d64-87f9-7f5da6a41d3b fwd="79.177.99.9" dyno=web.1 connect=1ms service=10ms status=200 bytes=4323 protocol=https
+2020-09-03T08:35:05.907744+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:35:05 +0000] "GET /login HTTP/1.1" 200 4147 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:35:09.304969+00:00 app[web.1]: <User 1>
+2020-09-03T08:35:09.308672+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:35:09 +0000] "POST /login HTTP/1.1" 302 227 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:35:09.313839+00:00 heroku[router]: at=info method=POST path="/login" host=apptrak20.herokuapp.com request_id=e8f0c24e-f992-4833-8e43-4d34e53910ad fwd="79.177.99.9" dyno=web.1 connect=1ms service=18ms status=302 bytes=964 protocol=https
+2020-09-03T08:35:09.478235+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=6839afbe-3a45-4d9e-91df-5aee387fb6c8 fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T08:35:09.479439+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:35:09 +0000] "GET /user-info HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:35:18.619284+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=15c1b109-f539-4cd5-85ba-760e17905548 fwd="79.177.99.9" dyno=web.1 connect=1ms service=10ms status=200 bytes=4099 protocol=https
+2020-09-03T08:35:18.620408+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:35:18 +0000] "GET / HTTP/1.1" 200 3923 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:35:25.211995+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T08:35:25.212067+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T08:35:25.214413+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=26387887-caa9-45a7-8590-778de042e5ae fwd="79.177.99.9" dyno=web.1 connect=1ms service=12ms status=200 bytes=11562 protocol=https
+2020-09-03T08:35:25.215395+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:35:25 +0000] "GET /current-apps HTTP/1.1" 200 11385 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:35:28.504106+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=fe8b3246-f0da-4d33-8ec1-427c5424cacb fwd="79.177.99.9" dyno=web.1 connect=3ms service=10ms status=200 bytes=5811 protocol=https
+2020-09-03T08:35:28.505424+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:35:28 +0000] "GET /add-app HTTP/1.1" 200 5635 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:35:51.634161+00:00 heroku[router]: at=info method=POST path="/add-app" host=apptrak20.herokuapp.com request_id=53de670d-633c-460d-a7ab-0e3d44ec14bc fwd="79.177.99.9" dyno=web.1 connect=1ms service=5ms status=401 bytes=509 protocol=https
+2020-09-03T08:35:51.635859+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:35:51 +0000] "POST /add-app HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:35:57.266294+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:35:57 +0000] "GET / HTTP/1.1" 200 3923 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:35:57.270560+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=fa807507-4435-40e2-b347-1e34f681bb12 fwd="79.177.99.9" dyno=web.1 connect=1ms service=18ms status=200 bytes=4099 protocol=https
+2020-09-03T08:36:00.802253+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T08:36:00.802393+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T08:36:00.806409+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=ee4143df-d861-45f0-af4f-89ea6f42a493 fwd="79.177.99.9" dyno=web.1 connect=1ms service=15ms status=200 bytes=11562 protocol=https
+2020-09-03T08:36:00.807033+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:36:00 +0000] "GET /current-apps HTTP/1.1" 200 11385 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:36:03.854121+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:36:03 +0000] "GET /add-app HTTP/1.1" 200 5635 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:36:03.854498+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=1927c571-0984-4557-af58-f9ae8c84fbe9 fwd="79.177.99.9" dyno=web.1 connect=1ms service=19ms status=200 bytes=5811 protocol=https
+2020-09-03T08:36:14.251876+00:00 heroku[router]: at=info method=POST path="/add-app" host=apptrak20.herokuapp.com request_id=c9132d94-a711-4187-8411-c295999230fb fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T08:36:14.253025+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:36:14 +0000] "POST /add-app HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:36:35.776144+00:00 heroku[router]: at=info method=POST path="/add-app" host=apptrak20.herokuapp.com request_id=b18e8bc2-9f6c-41cf-9fd6-200272003359 fwd="79.177.99.9" dyno=web.1 connect=1ms service=9ms status=401 bytes=509 protocol=https
+2020-09-03T08:36:35.777442+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:36:35 +0000] "POST /add-app HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:36:43.961431+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:36:43 +0000] "GET / HTTP/1.1" 200 3923 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:36:43.962981+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=4d175cde-6897-4a42-9799-0f19f5fd8838 fwd="79.177.99.9" dyno=web.1 connect=1ms service=13ms status=200 bytes=4099 protocol=https
+2020-09-03T08:37:32.739647+00:00 heroku[router]: at=info method=GET path="/logout" host=apptrak20.herokuapp.com request_id=ce640764-454b-460f-9a3a-d8be322ae898 fwd="79.177.99.9" dyno=web.1 connect=1ms service=4ms status=302 bytes=597 protocol=https
+2020-09-03T08:37:32.740923+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:37:32 +0000] "GET /logout HTTP/1.1" 302 217 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:37:32.905608+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:37:32 +0000] "GET /index HTTP/1.1" 200 3394 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:37:32.909273+00:00 heroku[router]: at=info method=GET path="/index" host=apptrak20.herokuapp.com request_id=156d1419-f910-4bba-8394-c1f913c87d60 fwd="79.177.99.9" dyno=web.1 connect=1ms service=8ms status=200 bytes=3556 protocol=https
+2020-09-03T08:37:35.364289+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:37:35 +0000] "GET /login HTTP/1.1" 200 3618 "https://apptrak20.herokuapp.com/index" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:37:35.367672+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=b6b7dd26-10dd-422e-b998-65cf64d532d8 fwd="79.177.99.9" dyno=web.1 connect=2ms service=9ms status=200 bytes=3965 protocol=https
+2020-09-03T08:37:39.569315+00:00 heroku[router]: at=info method=GET path="/register" host=apptrak20.herokuapp.com request_id=a9186ee4-8897-4394-8b1c-2650d4e8fe6f fwd="79.177.99.9" dyno=web.1 connect=1ms service=7ms status=200 bytes=4348 protocol=https
+2020-09-03T08:37:39.569951+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:37:39 +0000] "GET /register HTTP/1.1" 200 4001 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:38:14.595064+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:38:14 +0000] "POST /register HTTP/1.1" 302 217 "https://apptrak20.herokuapp.com/register" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:38:14.598876+00:00 heroku[router]: at=info method=POST path="/register" host=apptrak20.herokuapp.com request_id=a63bee04-2916-477e-a6b6-2633b2aa3b1c fwd="79.177.99.9" dyno=web.1 connect=1ms service=20ms status=302 bytes=674 protocol=https
+2020-09-03T08:38:14.778387+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=e523d401-0169-4ed4-8be3-c0c18cf61ecb fwd="79.177.99.9" dyno=web.1 connect=1ms service=6ms status=200 bytes=4475 protocol=https
+2020-09-03T08:38:14.779858+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:38:14 +0000] "GET /login HTTP/1.1" 200 4128 "https://apptrak20.herokuapp.com/register" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:38:21.413532+00:00 app[web.1]: None
+2020-09-03T08:38:21.418977+00:00 heroku[router]: at=info method=POST path="/login" host=apptrak20.herokuapp.com request_id=dbb81f4d-c08d-44d5-98cd-170fbe13b243 fwd="79.177.99.9" dyno=web.1 connect=1ms service=24ms status=302 bytes=687 protocol=https
+2020-09-03T08:38:21.420180+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:38:21 +0000] "POST /login HTTP/1.1" 302 217 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:38:21.590174+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=cd612599-a4b4-41a1-bf14-bdaec73187bf fwd="79.177.99.9" dyno=web.1 connect=1ms service=6ms status=200 bytes=4486 protocol=https
+2020-09-03T08:38:21.591418+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:38:21 +0000] "GET /login HTTP/1.1" 200 4139 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:38:31.964399+00:00 app[web.1]: <User 2>
+2020-09-03T08:38:31.968255+00:00 heroku[router]: at=info method=POST path="/login" host=apptrak20.herokuapp.com request_id=65061539-7462-46e7-8b2b-4b24e94c675c fwd="79.177.99.9" dyno=web.1 connect=1ms service=15ms status=302 bytes=964 protocol=https
+2020-09-03T08:38:31.968883+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:38:31 +0000] "POST /login HTTP/1.1" 302 227 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:38:32.151778+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=6d2ef73c-4517-4154-9699-51924d00d5ad fwd="79.177.99.9" dyno=web.1 connect=2ms service=12ms status=200 bytes=3817 protocol=https
+2020-09-03T08:38:32.152969+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:38:32 +0000] "GET /user-info HTTP/1.1" 200 3641 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:38:35.906912+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=1db0168e-465b-4e13-96b1-4f099a09c488 fwd="79.177.99.9" dyno=web.1 connect=1ms service=12ms status=200 bytes=5808 protocol=https
+2020-09-03T08:38:35.908263+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:38:35 +0000] "GET /add-app HTTP/1.1" 200 5632 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:39:01.787231+00:00 heroku[router]: at=info method=POST path="/add-app" host=apptrak20.herokuapp.com request_id=4ee28d63-5fee-40bb-9a86-056bfd199672 fwd="79.177.99.9" dyno=web.1 connect=1ms service=15ms status=302 bytes=467 protocol=https
+2020-09-03T08:39:01.788164+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:39:01 +0000] "POST /add-app HTTP/1.1" 302 233 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:39:01.951414+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=dd283a9a-83c8-4146-acb9-876ca1e52bc9 fwd="79.177.99.9" dyno=web.1 connect=1ms service=4ms status=401 bytes=509 protocol=https
+2020-09-03T08:39:01.952777+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:39:01 +0000] "GET /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:39:05.221807+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=eaf57b55-60bc-47c3-a3dd-12bcc1add22d fwd="79.177.99.9" dyno=web.1 connect=1ms service=14ms status=200 bytes=5808 protocol=https
+2020-09-03T08:39:05.222858+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:39:05 +0000] "GET /add-app HTTP/1.1" 200 5632 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:39:09.945494+00:00 heroku[router]: at=info method=POST path="/add-app" host=apptrak20.herokuapp.com request_id=92466a5b-7ee2-4ed5-b91f-a88b42440e8b fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T08:39:09.947062+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:39:09 +0000] "POST /add-app HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:39:15.010025+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=b39c55f7-0673-45be-820e-9afe68939d1e fwd="79.177.99.9" dyno=web.1 connect=6ms service=4ms status=401 bytes=509 protocol=https
+2020-09-03T08:39:15.011529+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:39:15 +0000] "GET /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:39:18.134926+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=1f71bc80-d63f-4376-8278-fac8e66b54c6 fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T08:39:18.136376+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:39:18 +0000] "GET /current-apps HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:39:23.204381+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=17663a2c-5247-4cae-b269-aa5e019be594 fwd="79.177.99.9" dyno=web.1 connect=1ms service=14ms status=200 bytes=4096 protocol=https
+2020-09-03T08:39:23.205577+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:39:23 +0000] "GET / HTTP/1.1" 200 3920 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:39:23.711119+00:00 heroku[router]: at=info method=GET path="/'" host=apptrak20.herokuapp.com request_id=9984606d-2b47-47c1-add9-e9ffc48e2aa3 fwd="79.177.99.9" dyno=web.1 connect=2ms service=3ms status=404 bytes=400 protocol=https
+2020-09-03T08:39:23.712432+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:39:23 +0000] "GET /' HTTP/1.1" 404 232 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:39:29.951458+00:00 app[web.1]: 10.63.127.111 - - [03/Sep/2020:08:39:29 +0000] "GET /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:39:29.957712+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=db20a9d6-0c1d-4a42-91bf-a8a1574df9c9 fwd="79.177.99.9" dyno=web.1 connect=1ms service=9ms status=401 bytes=509 protocol=https
+2020-09-03T08:44:49.855500+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=d9d4eabd-0d10-479c-bbec-1c862742f17d fwd="79.177.99.9" dyno=web.1 connect=0ms service=4ms status=200 bytes=3556 protocol=https
+2020-09-03T08:44:49.856059+00:00 app[web.1]: 10.95.191.28 - - [03/Sep/2020:08:44:49 +0000] "GET / HTTP/1.1" 200 3394 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:45:09.790758+00:00 app[web.1]: 10.33.206.158 - - [03/Sep/2020:08:45:09 +0000] "GET / HTTP/1.1" 200 3394 "-" "Slackbot-LinkExpanding 1.0 (+https://api.slack.com/robots)"
+2020-09-03T08:45:09.795138+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=6ec6c6f0-e842-4974-b132-2a23a9976d13 fwd="3.86.200.151" dyno=web.1 connect=1ms service=6ms status=200 bytes=3556 protocol=https
+2020-09-03T08:45:09.855566+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:08:45:09 +0000] "GET /favicon.ico HTTP/1.1" 404 232 "-" "Slackbot 1.0 (+https://api.slack.com/robots)"
+2020-09-03T08:45:09.857436+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=apptrak20.herokuapp.com request_id=c0d7c237-f639-412e-b95e-d7a130444068 fwd="3.86.200.151" dyno=web.1 connect=1ms service=2ms status=404 bytes=400 protocol=https
+2020-09-03T08:45:37.959255+00:00 app[web.1]: 10.95.191.28 - - [03/Sep/2020:08:45:37 +0000] "GET /login HTTP/1.1" 200 4144 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:45:37.959482+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=1804a705-c5d1-4ade-bb59-71b5bf68c27a fwd="79.177.99.9" dyno=web.1 connect=0ms service=9ms status=200 bytes=4320 protocol=https
+2020-09-03T08:45:43.948278+00:00 app[web.1]: <User 1>
+2020-09-03T08:45:43.951803+00:00 heroku[router]: at=info method=POST path="/login" host=apptrak20.herokuapp.com request_id=12300ceb-8abe-4368-a7da-9125c6bb7bca fwd="79.177.99.9" dyno=web.1 connect=0ms service=10ms status=302 bytes=964 protocol=https
+2020-09-03T08:45:43.951985+00:00 app[web.1]: 10.95.191.28 - - [03/Sep/2020:08:45:43 +0000] "POST /login HTTP/1.1" 302 227 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:45:44.123231+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=d65c54eb-dc6d-49fc-9f1b-94fb420d4d8d fwd="79.177.99.9" dyno=web.1 connect=0ms service=11ms status=200 bytes=3837 protocol=https
+2020-09-03T08:45:44.123370+00:00 app[web.1]: 10.95.191.28 - - [03/Sep/2020:08:45:44 +0000] "GET /user-info HTTP/1.1" 200 3661 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:45:47.049591+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=147f806b-17cf-4979-a80a-c89c92b504ce fwd="79.177.99.9" dyno=web.1 connect=0ms service=10ms status=401 bytes=509 protocol=https
+2020-09-03T08:45:47.049793+00:00 app[web.1]: 10.95.191.28 - - [03/Sep/2020:08:45:47 +0000] "GET /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:45:49.566564+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T08:45:49.566608+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T08:45:49.570233+00:00 app[web.1]: 10.95.191.28 - - [03/Sep/2020:08:45:49 +0000] "GET /current-apps HTTP/1.1" 200 11385 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:45:49.577585+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=9fb4c18d-0b16-4a31-a7eb-d87d5ab7d66e fwd="79.177.99.9" dyno=web.1 connect=0ms service=20ms status=200 bytes=11562 protocol=https
+2020-09-03T08:45:56.002909+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=10413788-6a0f-461d-aa26-7c0844d611e5 fwd="79.177.99.9" dyno=web.1 connect=0ms service=16ms status=200 bytes=5811 protocol=https
+2020-09-03T08:45:56.003008+00:00 app[web.1]: 10.95.191.28 - - [03/Sep/2020:08:45:55 +0000] "GET /add-app HTTP/1.1" 200 5635 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:46:19.520521+00:00 app[web.1]: [2020-09-03 08:46:19,511] ERROR in app: Exception on /add-app [POST]
+2020-09-03T08:46:19.520529+00:00 app[web.1]: Traceback (most recent call last):
+2020-09-03T08:46:19.520530+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+2020-09-03T08:46:19.520531+00:00 app[web.1]: cursor, statement, parameters, context
+2020-09-03T08:46:19.520531+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+2020-09-03T08:46:19.520532+00:00 app[web.1]: cursor.execute(statement, parameters)
+2020-09-03T08:46:19.520532+00:00 app[web.1]: psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "job_application_url_key"
+2020-09-03T08:46:19.520533+00:00 app[web.1]: DETAIL:  Key (url)=(www.python.com) already exists.
+2020-09-03T08:46:19.520533+00:00 app[web.1]: 
+2020-09-03T08:46:19.520534+00:00 app[web.1]: 
+2020-09-03T08:46:19.520534+00:00 app[web.1]: The above exception was the direct cause of the following exception:
+2020-09-03T08:46:19.520534+00:00 app[web.1]: 
+2020-09-03T08:46:19.520535+00:00 app[web.1]: Traceback (most recent call last):
+2020-09-03T08:46:19.520535+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+2020-09-03T08:46:19.520536+00:00 app[web.1]: response = self.full_dispatch_request()
+2020-09-03T08:46:19.520536+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+2020-09-03T08:46:19.520536+00:00 app[web.1]: rv = self.handle_user_exception(e)
+2020-09-03T08:46:19.520537+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+2020-09-03T08:46:19.520537+00:00 app[web.1]: reraise(exc_type, exc_value, tb)
+2020-09-03T08:46:19.520537+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+2020-09-03T08:46:19.520538+00:00 app[web.1]: raise value
+2020-09-03T08:46:19.520538+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+2020-09-03T08:46:19.520539+00:00 app[web.1]: rv = self.dispatch_request()
+2020-09-03T08:46:19.520539+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+2020-09-03T08:46:19.520556+00:00 app[web.1]: return self.view_functions[rule.endpoint](**req.view_args)
+2020-09-03T08:46:19.520556+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+2020-09-03T08:46:19.520556+00:00 app[web.1]: return func(*args, **kwargs)
+2020-09-03T08:46:19.520557+00:00 app[web.1]: File "/app/apptrak/blueprints/jobapps/views.py", line 32, in add_app
+2020-09-03T08:46:19.520557+00:00 app[web.1]: JobApplication.save(jobapp)
+2020-09-03T08:46:19.520558+00:00 app[web.1]: File "/app/apptrak/blueprints/jobapps/models.py", line 29, in save
+2020-09-03T08:46:19.520558+00:00 app[web.1]: db.session.commit()
+2020-09-03T08:46:19.520559+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+2020-09-03T08:46:19.520559+00:00 app[web.1]: return getattr(self.registry(), name)(*args, **kwargs)
+2020-09-03T08:46:19.520559+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+2020-09-03T08:46:19.520560+00:00 app[web.1]: self.transaction.commit()
+2020-09-03T08:46:19.520560+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+2020-09-03T08:46:19.520560+00:00 app[web.1]: self._prepare_impl()
+2020-09-03T08:46:19.520561+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+2020-09-03T08:46:19.520561+00:00 app[web.1]: self.session.flush()
+2020-09-03T08:46:19.520561+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+2020-09-03T08:46:19.520562+00:00 app[web.1]: self._flush(objects)
+2020-09-03T08:46:19.520562+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+2020-09-03T08:46:19.520562+00:00 app[web.1]: transaction.rollback(_capture_exception=True)
+2020-09-03T08:46:19.520563+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+2020-09-03T08:46:19.520563+00:00 app[web.1]: exc_value, with_traceback=exc_tb,
+2020-09-03T08:46:19.520564+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+2020-09-03T08:46:19.520564+00:00 app[web.1]: raise exception
+2020-09-03T08:46:19.520564+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+2020-09-03T08:46:19.520565+00:00 app[web.1]: flush_context.execute()
+2020-09-03T08:46:19.520565+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+2020-09-03T08:46:19.520565+00:00 app[web.1]: rec.execute(self)
+2020-09-03T08:46:19.520566+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+2020-09-03T08:46:19.520566+00:00 app[web.1]: uow,
+2020-09-03T08:46:19.520566+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+2020-09-03T08:46:19.520567+00:00 app[web.1]: insert,
+2020-09-03T08:46:19.520567+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 1136, in _emit_insert_statements
+2020-09-03T08:46:19.520568+00:00 app[web.1]: statement, params
+2020-09-03T08:46:19.520568+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1014, in execute
+2020-09-03T08:46:19.520568+00:00 app[web.1]: return meth(self, multiparams, params)
+2020-09-03T08:46:19.520569+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+2020-09-03T08:46:19.520570+00:00 app[web.1]: return connection._execute_clauseelement(self, multiparams, params)
+2020-09-03T08:46:19.520571+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1133, in _execute_clauseelement
+2020-09-03T08:46:19.520577+00:00 app[web.1]: distilled_params,
+2020-09-03T08:46:19.520578+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1318, in _execute_context
+2020-09-03T08:46:19.520578+00:00 app[web.1]: e, statement, parameters, cursor, context
+2020-09-03T08:46:19.520578+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1512, in _handle_dbapi_exception
+2020-09-03T08:46:19.520579+00:00 app[web.1]: sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+2020-09-03T08:46:19.520579+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+2020-09-03T08:46:19.520579+00:00 app[web.1]: raise exception
+2020-09-03T08:46:19.520580+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1278, in _execute_context
+2020-09-03T08:46:19.520580+00:00 app[web.1]: cursor, statement, parameters, context
+2020-09-03T08:46:19.520581+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+2020-09-03T08:46:19.520581+00:00 app[web.1]: cursor.execute(statement, parameters)
+2020-09-03T08:46:19.520582+00:00 app[web.1]: sqlalchemy.exc.IntegrityError: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "job_application_url_key"
+2020-09-03T08:46:19.520582+00:00 app[web.1]: DETAIL:  Key (url)=(www.python.com) already exists.
+2020-09-03T08:46:19.520582+00:00 app[web.1]: 
+2020-09-03T08:46:19.520591+00:00 app[web.1]: [SQL: INSERT INTO job_application (date_added, company, position, location, url, contact, interview, called_back, interview_date, assignment, assignment_date, archived, top_job, user_id) VALUES (%(date_added)s, %(company)s, %(position)s, %(location)s, %(url)s, %(contact)s, %(interview)s, %(called_back)s, %(interview_date)s, %(assignment)s, %(assignment_date)s, %(archived)s, %(top_job)s, %(user_id)s) RETURNING job_application.id]
+2020-09-03T08:46:19.520592+00:00 app[web.1]: [parameters: {'date_added': datetime.datetime(2020, 9, 3, 8, 46, 19, 506729), 'company': 'Python', 'position': 'Developer', 'location': 'Tel Aviv', 'url': 'www.python.com', 'contact': 'python@py.com', 'interview': False, 'called_back': False, 'interview_date': None, 'assignment': False, 'assignment_date': None, 'archived': False, 'top_job': False, 'user_id': 1}]
+2020-09-03T08:46:19.520705+00:00 app[web.1]: (Background on this error at: http://sqlalche.me/e/13/gkpj)
+2020-09-03T08:46:19.522252+00:00 app[web.1]: 10.95.191.28 - - [03/Sep/2020:08:46:19 +0000] "POST /add-app HTTP/1.1" 500 290 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:46:19.523480+00:00 heroku[router]: at=info method=POST path="/add-app" host=apptrak20.herokuapp.com request_id=3462d922-c06c-47ed-9875-b1801171ab15 fwd="79.177.99.9" dyno=web.1 connect=0ms service=27ms status=500 bytes=484 protocol=https
+2020-09-03T08:46:23.634581+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=5a1482c3-3d08-465c-8c2a-f2a2c7d6f597 fwd="79.177.99.9" dyno=web.1 connect=0ms service=11ms status=200 bytes=5811 protocol=https
+2020-09-03T08:46:23.634910+00:00 app[web.1]: 10.95.191.28 - - [03/Sep/2020:08:46:23 +0000] "GET /add-app HTTP/1.1" 200 5635 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:46:28.608238+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T08:46:28.608253+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T08:46:28.611792+00:00 app[web.1]: 10.95.191.28 - - [03/Sep/2020:08:46:28 +0000] "GET /current-apps HTTP/1.1" 200 11385 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:46:28.611813+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=c60920d8-453d-4978-b3ae-2da873b08ba9 fwd="79.177.99.9" dyno=web.1 connect=0ms service=12ms status=200 bytes=11562 protocol=https
+2020-09-03T08:46:55.560128+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=8a03e5bc-525c-478c-b3be-64673e97fe5a fwd="176.231.66.150" dyno=web.1 connect=1ms service=4ms status=200 bytes=3556 protocol=https
+2020-09-03T08:46:55.560530+00:00 app[web.1]: 10.16.200.69 - - [03/Sep/2020:08:46:55 +0000] "GET / HTTP/1.1" 200 3394 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:46:55.784988+00:00 heroku[router]: at=info method=GET path="/static//images/logo.png" host=apptrak20.herokuapp.com request_id=ee9d4229-cd57-439c-be1d-d13cc002eabb fwd="176.231.66.150" dyno=web.1 connect=1ms service=3ms status=308 bytes=558 protocol=https
+2020-09-03T08:46:55.785422+00:00 app[web.1]: 10.16.200.69 - - [03/Sep/2020:08:46:55 +0000] "GET /static//images/logo.png HTTP/1.1" 308 315 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:46:55.877482+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:46:55 +0000] "GET /static/jinja.js HTTP/1.1" 200 0 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:46:55.878079+00:00 heroku[router]: at=info method=GET path="/static/jinja.js" host=apptrak20.herokuapp.com request_id=c87e5dc8-a99d-4113-b0cf-9567145558a9 fwd="176.231.66.150" dyno=web.1 connect=0ms service=3ms status=200 bytes=19295 protocol=https
+2020-09-03T08:46:55.985880+00:00 app[web.1]: 10.16.200.69 - - [03/Sep/2020:08:46:55 +0000] "GET /static/images/logo.png HTTP/1.1" 200 0 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:46:55.988587+00:00 heroku[router]: at=info method=GET path="/static/images/logo.png" host=apptrak20.herokuapp.com request_id=7365eb29-f1cb-4f77-b162-4a318bf5749d fwd="176.231.66.150" dyno=web.1 connect=1ms service=6ms status=200 bytes=10545 protocol=https
+2020-09-03T08:46:56.354664+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:46:56 +0000] "GET /favicon.ico HTTP/1.1" 404 232 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:46:56.354697+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=apptrak20.herokuapp.com request_id=a1a597a6-62e8-44c6-9e76-2df3be6e71cc fwd="176.231.66.150" dyno=web.1 connect=0ms service=2ms status=404 bytes=400 protocol=https
+2020-09-03T08:47:00.050231+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:47:00 +0000] "GET /login HTTP/1.1" 200 3618 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:47:00.050375+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=6011e05d-174f-43ed-86f9-c168c8f28ddf fwd="176.231.66.150" dyno=web.1 connect=0ms service=5ms status=200 bytes=3965 protocol=https
+2020-09-03T08:47:02.332302+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:47:02 +0000] "GET /register HTTP/1.1" 200 4001 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:47:02.332544+00:00 heroku[router]: at=info method=GET path="/register" host=apptrak20.herokuapp.com request_id=0190ce1c-d9a6-4e50-856a-dc02091af0d9 fwd="176.231.66.150" dyno=web.1 connect=0ms service=12ms status=200 bytes=4348 protocol=https
+2020-09-03T08:47:22.883923+00:00 heroku[router]: at=info method=POST path="/register" host=apptrak20.herokuapp.com request_id=402923dd-c170-4955-9eeb-f9d0a6acd500 fwd="176.231.66.150" dyno=web.1 connect=1ms service=12ms status=302 bytes=671 protocol=https
+2020-09-03T08:47:22.883953+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:47:22 +0000] "POST /register HTTP/1.1" 302 217 "https://apptrak20.herokuapp.com/register" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:47:23.091180+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:47:23 +0000] "GET /login HTTP/1.1" 200 4128 "https://apptrak20.herokuapp.com/register" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:47:23.097822+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=683633c7-ec69-4692-a16c-95645f061238 fwd="176.231.66.150" dyno=web.1 connect=0ms service=11ms status=200 bytes=4475 protocol=https
+2020-09-03T08:47:34.913676+00:00 app[web.1]: <User 3>
+2020-09-03T08:47:34.920137+00:00 heroku[router]: at=info method=POST path="/login" host=apptrak20.herokuapp.com request_id=6e4e7c00-9e89-43bf-a1f5-38cabcb564c6 fwd="176.231.66.150" dyno=web.1 connect=0ms service=13ms status=302 bytes=964 protocol=https
+2020-09-03T08:47:34.920230+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:47:34 +0000] "POST /login HTTP/1.1" 302 227 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:47:35.140163+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:47:35 +0000] "GET /user-info HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:47:35.141820+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=e72050a1-bc87-4e5d-83a5-322dc73f1e37 fwd="176.231.66.150" dyno=web.1 connect=0ms service=5ms status=401 bytes=509 protocol=https
+2020-09-03T08:47:38.153161+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:47:38 +0000] "GET /login HTTP/1.1" 200 3618 "https://apptrak20.herokuapp.com/register" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:47:38.153192+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=b5ccf90f-ee0d-4bdc-babd-2989f80050d8 fwd="176.231.66.150" dyno=web.1 connect=0ms service=4ms status=200 bytes=3965 protocol=https
+2020-09-03T08:47:42.165161+00:00 app[web.1]: <User 3>
+2020-09-03T08:47:42.165171+00:00 app[web.1]: t9udiqau
+2020-09-03T08:47:42.168430+00:00 heroku[router]: at=info method=POST path="/login" host=apptrak20.herokuapp.com request_id=926504a5-7a0b-4be2-b3a3-9577cb26127b fwd="176.231.66.150" dyno=web.1 connect=1ms service=12ms status=302 bytes=674 protocol=https
+2020-09-03T08:47:42.168455+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:47:42 +0000] "POST /login HTTP/1.1" 302 217 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:47:42.389155+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:47:42 +0000] "GET /login HTTP/1.1" 200 4670 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:47:42.389269+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=7289d31c-c5d2-4334-b490-5a442fd0fe3e fwd="176.231.66.150" dyno=web.1 connect=0ms service=13ms status=200 bytes=5037 protocol=https
+2020-09-03T08:47:46.373498+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:47:46 +0000] "GET /request-password HTTP/1.1" 200 3603 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:47:46.373552+00:00 heroku[router]: at=info method=GET path="/request-password" host=apptrak20.herokuapp.com request_id=2e08444e-5caf-4d91-888c-f54e0abc4343 fwd="176.231.66.150" dyno=web.1 connect=0ms service=18ms status=200 bytes=3970 protocol=https
+2020-09-03T08:47:49.378773+00:00 app[web.1]: b'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHBpcmVzIjoxNTk5MTI2NDY5LjM3ODMxNH0.Q9MnZiQgd5xAGND3ANcTK3BnqtnuUrtu9-z0PYaa8DY'
+2020-09-03T08:47:49.380254+00:00 app[web.1]: [2020-09-03 08:47:49,379] ERROR in app: Exception on /request-password [POST]
+2020-09-03T08:47:49.380255+00:00 app[web.1]: Traceback (most recent call last):
+2020-09-03T08:47:49.380256+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+2020-09-03T08:47:49.380256+00:00 app[web.1]: response = self.full_dispatch_request()
+2020-09-03T08:47:49.380257+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+2020-09-03T08:47:49.380257+00:00 app[web.1]: rv = self.handle_user_exception(e)
+2020-09-03T08:47:49.380258+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+2020-09-03T08:47:49.380258+00:00 app[web.1]: reraise(exc_type, exc_value, tb)
+2020-09-03T08:47:49.380259+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+2020-09-03T08:47:49.380259+00:00 app[web.1]: raise value
+2020-09-03T08:47:49.380260+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+2020-09-03T08:47:49.380260+00:00 app[web.1]: rv = self.dispatch_request()
+2020-09-03T08:47:49.380261+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+2020-09-03T08:47:49.380262+00:00 app[web.1]: return self.view_functions[rule.endpoint](**req.view_args)
+2020-09-03T08:47:49.380262+00:00 app[web.1]: File "/app/apptrak/blueprints/auth/views.py", line 73, in request_password
+2020-09-03T08:47:49.380262+00:00 app[web.1]: send_password_link(email, user)
+2020-09-03T08:47:49.380263+00:00 app[web.1]: File "/app/apptrak/mail_handler.py", line 38, in send_password_link
+2020-09-03T08:47:49.380263+00:00 app[web.1]: sender=current_app.config['MAIL_USERNAME'],
+2020-09-03T08:47:49.380333+00:00 app[web.1]: KeyError: 'MAIL_USERNAME'
+2020-09-03T08:47:49.383236+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:47:49 +0000] "POST /request-password HTTP/1.1" 500 290 "https://apptrak20.herokuapp.com/request-password" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:47:49.384796+00:00 heroku[router]: at=info method=POST path="/request-password" host=apptrak20.herokuapp.com request_id=7b6fbbaf-5884-4709-bcac-b4ac18acb554 fwd="176.231.66.150" dyno=web.1 connect=0ms service=15ms status=500 bytes=484 protocol=https
+2020-09-03T08:48:19.008031+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:48:19 +0000] "GET /request-password HTTP/1.1" 200 3603 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:48:19.008197+00:00 heroku[router]: at=info method=GET path="/request-password" host=apptrak20.herokuapp.com request_id=713f2bd9-38d6-491e-9740-cebbffe859bf fwd="176.231.66.150" dyno=web.1 connect=0ms service=10ms status=200 bytes=3970 protocol=https
+2020-09-03T08:48:20.441659+00:00 app[web.1]: b'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHBpcmVzIjoxNTk5MTI2NTAwLjQ0MTQ0OH0.ev3n2bt2o6uVQx7P3Vzkz5yd2eJeEgqpWe1DF3d1FIg'
+2020-09-03T08:48:20.442209+00:00 app[web.1]: [2020-09-03 08:48:20,441] ERROR in app: Exception on /request-password [POST]
+2020-09-03T08:48:20.442210+00:00 app[web.1]: Traceback (most recent call last):
+2020-09-03T08:48:20.442211+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+2020-09-03T08:48:20.442211+00:00 app[web.1]: response = self.full_dispatch_request()
+2020-09-03T08:48:20.442212+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+2020-09-03T08:48:20.442212+00:00 app[web.1]: rv = self.handle_user_exception(e)
+2020-09-03T08:48:20.442213+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+2020-09-03T08:48:20.442213+00:00 app[web.1]: reraise(exc_type, exc_value, tb)
+2020-09-03T08:48:20.442213+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+2020-09-03T08:48:20.442214+00:00 app[web.1]: raise value
+2020-09-03T08:48:20.442214+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+2020-09-03T08:48:20.442215+00:00 app[web.1]: rv = self.dispatch_request()
+2020-09-03T08:48:20.442215+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+2020-09-03T08:48:20.442216+00:00 app[web.1]: return self.view_functions[rule.endpoint](**req.view_args)
+2020-09-03T08:48:20.442216+00:00 app[web.1]: File "/app/apptrak/blueprints/auth/views.py", line 73, in request_password
+2020-09-03T08:48:20.442216+00:00 app[web.1]: send_password_link(email, user)
+2020-09-03T08:48:20.442217+00:00 app[web.1]: File "/app/apptrak/mail_handler.py", line 38, in send_password_link
+2020-09-03T08:48:20.442217+00:00 app[web.1]: sender=current_app.config['MAIL_USERNAME'],
+2020-09-03T08:48:20.442260+00:00 app[web.1]: KeyError: 'MAIL_USERNAME'
+2020-09-03T08:48:20.444477+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:48:20 +0000] "POST /request-password HTTP/1.1" 500 290 "https://apptrak20.herokuapp.com/request-password" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T08:48:20.446728+00:00 heroku[router]: at=info method=POST path="/request-password" host=apptrak20.herokuapp.com request_id=d36e0848-a45d-4cf2-8d0f-4c02a26c0285 fwd="176.231.66.150" dyno=web.1 connect=0ms service=13ms status=500 bytes=484 protocol=https
+2020-09-03T08:48:21.555574+00:00 heroku[router]: at=info method=GET path="/request-password" host=apptrak20.herokuapp.com request_id=2923edd1-9f87-4e5a-8d16-d75ed9a93e6a fwd="176.231.66.150" dyno=web.1 connect=0ms service=9ms status=200 bytes=3419 protocol=https
+2020-09-03T08:48:21.555670+00:00 app[web.1]: 10.37.161.80 - - [03/Sep/2020:08:48:21 +0000] "GET /request-password HTTP/1.1" 200 3072 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T09:20:22.833167+00:00 app[web.1]: 10.63.145.147 - - [03/Sep/2020:09:20:22 +0000] "GET / HTTP/1.1" 200 3923 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T09:20:22.838716+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=e434404e-3525-47e6-b0cf-55fa4a0d7e44 fwd="79.177.99.9" dyno=web.1 connect=1ms service=17ms status=200 bytes=4099 protocol=https
+2020-09-03T09:56:42.330420+00:00 heroku[web.1]: Idling
+2020-09-03T09:56:42.332954+00:00 heroku[web.1]: State changed from up to down
+2020-09-03T09:56:43.526169+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2020-09-03T09:56:43.562405+00:00 app[web.1]: [2020-09-03 09:56:43 +0000] [12] [INFO] Handling signal: term
+2020-09-03T09:56:43.641227+00:00 heroku[web.1]: Process exited with status 143
+2020-09-03T14:20:51.029427+00:00 heroku[web.1]: Unidling
+2020-09-03T14:20:51.043563+00:00 heroku[web.1]: State changed from down to starting
+2020-09-03T14:20:55.239199+00:00 heroku[web.1]: Starting process with command `flask db upgrade; gunicorn wsgi:app`
+2020-09-03T14:20:59.386692+00:00 app[web.1]: /app/.heroku/python/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py:834: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+2020-09-03T14:20:59.386709+00:00 app[web.1]: 'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+2020-09-03T14:20:59.405135+00:00 app[web.1]: Error: Path doesn't exist: '/app/migrations'.  Please use the 'init' command to create a new scripts folder.
+2020-09-03T14:20:59.796458+00:00 app[web.1]: [2020-09-03 14:20:59 +0000] [12] [INFO] Starting gunicorn 20.0.4
+2020-09-03T14:20:59.797068+00:00 app[web.1]: [2020-09-03 14:20:59 +0000] [12] [INFO] Listening at: http://0.0.0.0:20861 (12)
+2020-09-03T14:20:59.797175+00:00 app[web.1]: [2020-09-03 14:20:59 +0000] [12] [INFO] Using worker: sync
+2020-09-03T14:20:59.801217+00:00 app[web.1]: [2020-09-03 14:20:59 +0000] [15] [INFO] Booting worker with pid: 15
+2020-09-03T14:20:59.845160+00:00 app[web.1]: [2020-09-03 14:20:59 +0000] [16] [INFO] Booting worker with pid: 16
+2020-09-03T14:20:59.906154+00:00 heroku[web.1]: State changed from starting to up
+2020-09-03T14:21:00.411404+00:00 app[web.1]: /app/.heroku/python/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py:834: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+2020-09-03T14:21:00.411450+00:00 app[web.1]: 'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+2020-09-03T14:21:00.431760+00:00 app[web.1]: /app/.heroku/python/lib/python3.6/site-packages/flask_sqlalchemy/__init__.py:834: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+2020-09-03T14:21:00.431761+00:00 app[web.1]: 'SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and '
+2020-09-03T14:21:01.124815+00:00 app[web.1]: 10.95.209.15 - - [03/Sep/2020:14:21:01 +0000] "GET / HTTP/1.1" 200 3394 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:01.125285+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=4e3ffd6c-d021-4e30-a211-b4b51436dfc6 fwd="79.177.99.9" dyno=web.1 connect=1ms service=26ms status=200 bytes=3556 protocol=https
+2020-09-03T14:21:01.343520+00:00 app[web.1]: 10.97.137.170 - - [03/Sep/2020:14:21:01 +0000] "GET / HTTP/1.1" 200 3394 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:01.346819+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=6d296519-b373-4011-a94b-590fd6defe49 fwd="79.177.99.9" dyno=web.1 connect=0ms service=31ms status=200 bytes=3556 protocol=https
+2020-09-03T14:21:04.000733+00:00 app[web.1]: 10.97.137.170 - - [03/Sep/2020:14:21:03 +0000] "GET /login HTTP/1.1" 200 3618 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:04.001885+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=8460c154-4c50-422f-8d70-134da1f2eb19 fwd="79.177.99.9" dyno=web.1 connect=0ms service=10ms status=200 bytes=3965 protocol=https
+2020-09-03T14:21:06.987944+00:00 app[web.1]: <User 1>
+2020-09-03T14:21:06.992936+00:00 app[web.1]: 10.97.137.170 - - [03/Sep/2020:14:21:06 +0000] "POST /login HTTP/1.1" 302 227 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:06.993605+00:00 heroku[router]: at=info method=POST path="/login" host=apptrak20.herokuapp.com request_id=dc08e07f-7582-4dcd-b0e1-ed7defb92121 fwd="79.177.99.9" dyno=web.1 connect=0ms service=71ms status=302 bytes=964 protocol=https
+2020-09-03T14:21:07.186238+00:00 app[web.1]: 10.97.137.170 - - [03/Sep/2020:14:21:07 +0000] "GET /user-info HTTP/1.1" 200 3661 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:07.186971+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=752ea266-2bc0-4b6c-8b63-5623195cc15c fwd="79.177.99.9" dyno=web.1 connect=0ms service=17ms status=200 bytes=3837 protocol=https
+2020-09-03T14:21:10.728637+00:00 app[web.1]: 10.97.137.170 - - [03/Sep/2020:14:21:10 +0000] "GET /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:21:10.729611+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=8d6694af-9706-4445-bb28-a631f40591af fwd="79.177.99.9" dyno=web.1 connect=2ms service=14ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:07.192153+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T14:24:07.192203+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T14:24:07.218793+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:07 +0000] "GET /current-apps HTTP/1.1" 200 11385 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:07.219364+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=785fc875-76a9-49fe-8144-8f66325e2c7f fwd="79.177.99.9" dyno=web.1 connect=1ms service=35ms status=200 bytes=11562 protocol=https
+2020-09-03T14:24:14.222992+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T14:24:14.223024+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T14:24:14.223556+00:00 app[web.1]: [<JobApplication 1>, <JobApplication 2>]
+2020-09-03T14:24:14.223629+00:00 app[web.1]: [{'id': 1, 'date_added': datetime.date(2020, 9, 3), 'company': 'Kela Group', 'position': 'Cyber Analyst', 'location': 'Tel Aviv', 'url': 'www.ke-la.com', 'contact': 'noy@kkela-group.com', 'interview': True, 'called_back': True, 'interview_date': None, 'assignment': True, 'assignment_date': None, 'archived': False, 'user_id': 1}]
+2020-09-03T14:24:14.227238+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:14 +0000] "POST /current-apps HTTP/1.1" 200 8605 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:14.227698+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=be6cc07e-5dd5-4af5-8912-4b5aabe77259 fwd="79.177.99.9" dyno=web.1 connect=1ms service=14ms status=200 bytes=8781 protocol=https
+2020-09-03T14:24:18.041979+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:18 +0000] "POST /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:18.045248+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=b1ddfbfa-2996-4606-94fc-518211daf8a6 fwd="79.177.99.9" dyno=web.1 connect=2ms service=6ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:22.495291+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:22 +0000] "GET /current-apps HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:22.496557+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=59eef9a6-9972-49fc-b5d2-516ea4d7cec6 fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:25.220877+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:25 +0000] "GET /current-apps HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:25.221080+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=b5be4a2d-0bc2-4eae-8d9f-0df3906e5837 fwd="79.177.99.9" dyno=web.1 connect=1ms service=6ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:30.122959+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:30 +0000] "GET / HTTP/1.1" 200 3923 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:30.123860+00:00 heroku[router]: at=info method=GET path="/" host=apptrak20.herokuapp.com request_id=65d01fc2-62ab-4081-b30e-1c0ff1e565bd fwd="79.177.99.9" dyno=web.1 connect=1ms service=9ms status=200 bytes=4099 protocol=https
+2020-09-03T14:24:33.737394+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:33 +0000] "GET /add-app HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:33.737880+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=6f9e3d59-9fde-4d8e-afca-b068f2639644 fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:35.727398+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:35 +0000] "GET /add-app HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:35.727716+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=588c24b8-facc-46aa-a0bc-2fbe63b15a43 fwd="79.177.99.9" dyno=web.1 connect=1ms service=5ms status=401 bytes=509 protocol=https
+2020-09-03T14:24:37.814424+00:00 app[web.1]: 10.29.170.202 - - [03/Sep/2020:14:24:37 +0000] "GET /add-app HTTP/1.1" 200 5635 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:24:37.815116+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=272b40a4-bbe2-492d-a1ac-fd3d16ae3193 fwd="79.177.99.9" dyno=web.1 connect=1ms service=24ms status=200 bytes=5811 protocol=https
+2020-09-03T14:54:46.851884+00:00 app[web.1]: 10.7.242.198 - - [03/Sep/2020:14:54:46 +0000] "GET /add-app HTTP/1.1" 200 5635 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:54:46.857067+00:00 heroku[router]: at=info method=GET path="/add-app" host=apptrak20.herokuapp.com request_id=e47c2f05-4f0b-4698-b77e-a387ce75779f fwd="79.177.99.9" dyno=web.1 connect=0ms service=13ms status=200 bytes=5811 protocol=https
+2020-09-03T14:54:47.865104+00:00 app[web.1]: 10.7.242.198 - - [03/Sep/2020:14:54:47 +0000] "GET /user-info HTTP/1.1" 200 3661 "https://apptrak20.herokuapp.com/add-app" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:54:47.869125+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=81f182e0-4c54-402c-9bec-8f31e5b982fc fwd="79.177.99.9" dyno=web.1 connect=0ms service=12ms status=200 bytes=3837 protocol=https
+2020-09-03T14:54:52.655664+00:00 app[web.1]: 10.7.242.198 - - [03/Sep/2020:14:54:52 +0000] "GET /logout HTTP/1.1" 302 217 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:54:52.659488+00:00 heroku[router]: at=info method=GET path="/logout" host=apptrak20.herokuapp.com request_id=119787ac-2c89-44e6-adfa-273f2cd59b13 fwd="79.177.99.9" dyno=web.1 connect=0ms service=11ms status=302 bytes=682 protocol=https
+2020-09-03T14:54:52.824434+00:00 app[web.1]: 10.7.242.198 - - [03/Sep/2020:14:54:52 +0000] "GET /index HTTP/1.1" 200 3394 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T14:54:52.828505+00:00 heroku[router]: at=info method=GET path="/index" host=apptrak20.herokuapp.com request_id=75e7a87a-40ec-4213-85f0-2f8695625eab fwd="79.177.99.9" dyno=web.1 connect=0ms service=3ms status=200 bytes=3556 protocol=https
+2020-09-03T15:15:46.482644+00:00 heroku[router]: at=info method=GET path="/login" host=apptrak20.herokuapp.com request_id=8185dd92-4520-4d08-9adf-e1ae91467e99 fwd="79.177.99.9" dyno=web.1 connect=1ms service=11ms status=200 bytes=3965 protocol=https
+2020-09-03T15:15:46.483638+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:15:46 +0000] "GET /login HTTP/1.1" 200 3618 "https://apptrak20.herokuapp.com/index" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:15:51.802319+00:00 app[web.1]: <User 1>
+2020-09-03T15:15:51.805620+00:00 heroku[router]: at=info method=POST path="/login" host=apptrak20.herokuapp.com request_id=9732de87-b4f0-4708-a8d5-6540bbc36e70 fwd="79.177.99.9" dyno=web.1 connect=1ms service=83ms status=302 bytes=963 protocol=https
+2020-09-03T15:15:51.806822+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:15:51 +0000] "POST /login HTTP/1.1" 302 227 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:15:51.984729+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=430e10f2-a952-46db-b18b-cbde449d3194 fwd="79.177.99.9" dyno=web.1 connect=1ms service=22ms status=200 bytes=3837 protocol=https
+2020-09-03T15:15:51.990383+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:15:51 +0000] "GET /user-info HTTP/1.1" 200 3661 "https://apptrak20.herokuapp.com/login" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:26.278866+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=78d328bb-303e-4a78-b016-9e385eb885f1 fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T15:16:26.279860+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:26 +0000] "GET /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:29.653784+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=9da81da2-1cc9-4927-ba5b-5a45378cf4a3 fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T15:16:29.654834+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:29 +0000] "GET /current-apps HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:31.880507+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T15:16:31.880551+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T15:16:32.025175+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=b8821516-0138-4208-9a5a-9db80c891121 fwd="79.177.99.9" dyno=web.1 connect=1ms service=154ms status=200 bytes=11562 protocol=https
+2020-09-03T15:16:32.026219+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:32 +0000] "GET /current-apps HTTP/1.1" 200 11385 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:48.329337+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T15:16:48.329353+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T15:16:48.329883+00:00 app[web.1]: [<JobApplication 1>, <JobApplication 2>]
+2020-09-03T15:16:48.329971+00:00 app[web.1]: [{'id': 1, 'date_added': datetime.date(2020, 9, 3), 'company': 'Kela Group', 'position': 'Cyber Analyst', 'location': 'Tel Aviv', 'url': 'www.ke-la.com', 'contact': 'noy@kkela-group.com', 'interview': True, 'called_back': True, 'interview_date': None, 'assignment': True, 'assignment_date': None, 'archived': False, 'user_id': 1}]
+2020-09-03T15:16:48.333444+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=ec79cdc2-1f97-4caf-a003-224645fc5ea6 fwd="79.177.99.9" dyno=web.1 connect=2ms service=16ms status=200 bytes=8781 protocol=https
+2020-09-03T15:16:48.333722+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:48 +0000] "POST /current-apps HTTP/1.1" 200 8605 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:51.898541+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=fbbfb169-1715-4204-8a0a-7b4efefb2140 fwd="79.177.99.9" dyno=web.1 connect=1ms service=4ms status=401 bytes=509 protocol=https
+2020-09-03T15:16:51.899896+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:51 +0000] "POST /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:16:54.223688+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T15:16:54.223732+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T15:16:54.226406+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=9c09c05b-052a-4a06-9603-688393e00c0e fwd="79.177.99.9" dyno=web.1 connect=1ms service=14ms status=200 bytes=11562 protocol=https
+2020-09-03T15:16:54.227417+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:16:54 +0000] "GET /current-apps HTTP/1.1" 200 11385 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:17:45.670163+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=912cdf47-cde5-467f-b361-ea020c21292f fwd="79.177.99.9" dyno=web.1 connect=1ms service=3ms status=401 bytes=509 protocol=https
+2020-09-03T15:17:45.671229+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:17:45 +0000] "POST /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:18:13.800967+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=9a72d83a-14c7-439d-b4e1-ca1f67a0a756 fwd="79.177.99.9" dyno=web.1 connect=1ms service=4ms status=401 bytes=509 protocol=https
+2020-09-03T15:18:13.802246+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:18:13 +0000] "GET /current-apps HTTP/1.1" 401 338 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:18:24.282753+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T15:18:24.287436+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T15:18:24.299004+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:18:24 +0000] "GET /current-apps HTTP/1.1" 200 11385 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:18:24.302306+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=545fc9f3-d9d7-487e-acd5-5817cb0b54cb fwd="79.177.99.9" dyno=web.1 connect=1ms service=41ms status=200 bytes=11562 protocol=https
+2020-09-03T15:18:32.131255+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=14ef00b9-65d2-4345-8e09-0636c0399135 fwd="79.177.99.9" dyno=web.1 connect=1ms service=4ms status=401 bytes=509 protocol=https
+2020-09-03T15:18:32.132604+00:00 app[web.1]: 10.63.192.246 - - [03/Sep/2020:15:18:32 +0000] "POST /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:30:31.645529+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T15:30:31.645582+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T15:30:31.649197+00:00 app[web.1]: 10.47.167.186 - - [03/Sep/2020:15:30:31 +0000] "GET /current-apps HTTP/1.1" 200 11385 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:30:31.657400+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=dc2748a4-4961-4d9b-b6ba-6a2043ba580d fwd="79.177.99.9" dyno=web.1 connect=0ms service=13ms status=200 bytes=11562 protocol=https
+2020-09-03T15:30:40.034796+00:00 app[web.1]: 10.47.167.186 - - [03/Sep/2020:15:30:40 +0000] "GET /user-info HTTP/1.1" 200 3661 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:30:40.035345+00:00 heroku[router]: at=info method=GET path="/user-info" host=apptrak20.herokuapp.com request_id=91046cd4-8c40-44b9-a303-49dde1a17bbb fwd="79.177.99.9" dyno=web.1 connect=0ms service=11ms status=200 bytes=3837 protocol=https
+2020-09-03T15:30:42.842771+00:00 app[web.1]: active item: <JobApplication 1>
+2020-09-03T15:30:42.842827+00:00 app[web.1]: active item: <JobApplication 2>
+2020-09-03T15:30:42.846634+00:00 app[web.1]: 10.47.167.186 - - [03/Sep/2020:15:30:42 +0000] "GET /current-apps HTTP/1.1" 200 11385 "https://apptrak20.herokuapp.com/user-info" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:30:42.846726+00:00 heroku[router]: at=info method=GET path="/current-apps" host=apptrak20.herokuapp.com request_id=4064a650-5027-4683-b102-b67424a9d9cf fwd="79.177.99.9" dyno=web.1 connect=0ms service=13ms status=200 bytes=11562 protocol=https
+2020-09-03T15:30:46.206443+00:00 app[web.1]: 10.47.167.186 - - [03/Sep/2020:15:30:46 +0000] "POST /current-apps HTTP/1.1" 401 338 "https://apptrak20.herokuapp.com/current-apps" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+2020-09-03T15:30:46.207682+00:00 heroku[router]: at=info method=POST path="/current-apps" host=apptrak20.herokuapp.com request_id=1b91f92d-ecb5-4031-994a-ad5e7aca031e fwd="79.177.99.9" dyno=web.1 connect=0ms service=5ms status=401 bytes=509 protocol=https

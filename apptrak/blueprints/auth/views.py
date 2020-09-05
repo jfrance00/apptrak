@@ -50,8 +50,9 @@ def login():
 
 
 @auth.route('/user-info', methods=['GET', 'POST'])
-@login_required
 def user_info():
+    if not current_user.is_authenticated:
+        return current_app.login_manager.unauthorized()
     user = current_user
     num_apps = len(current_user.job_applications)
     return flask.render_template('user-info.html', user=user, num_apps=num_apps)

@@ -1,4 +1,5 @@
 import flask
+from flask import current_app
 from sqlalchemy import select, and_
 from . import jobapps, forms
 from .models import JobApplication
@@ -10,8 +11,9 @@ import datetime
 
 
 @jobapps.route('/add-app', methods=['GET', 'POST'])
-@login_required
 def add_app():
+    if not current_user.is_authenticated:
+        return current_app.login_manager.unauthorized()
     form = forms.UploadApp()
     if flask.request.method == 'POST':
         jobapp = JobApplication(
@@ -59,8 +61,9 @@ def display_apps():
 
 
 @jobapps.route('/edit-app', methods=['GET', 'POST'])
-@login_required
 def edit_app():
+    if not current_user.is_authenticated:
+        return current_app.login_manager.unauthorized()
     job_id = flask.request.json[0]
     field = flask.request.json[1]
     date = flask.request.json[2]
