@@ -11,9 +11,8 @@ import datetime
 
 
 @jobapps.route('/add-app', methods=['GET', 'POST'])
+@login_required
 def add_app():
-    if not current_user.is_authenticated:
-        return current_app.login_manager.unauthorized()
     form = forms.UploadApp()
     if flask.request.method == 'POST':
         jobapp = JobApplication(
@@ -61,6 +60,7 @@ def display_apps():
 
 
 @jobapps.route('/edit-app', methods=['GET', 'POST'])
+@login_required
 def edit_app():
     if not current_user.is_authenticated:
         return current_app.login_manager.unauthorized()

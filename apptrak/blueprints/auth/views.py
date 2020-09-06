@@ -1,5 +1,5 @@
 import flask
-from flask_login import logout_user, current_user, login_required
+from flask_login import login_user, logout_user, current_user, login_required
 from . import forms, auth
 from .models import User
 from ... import db
@@ -41,8 +41,9 @@ def login():
     if flask.request.method == 'POST':
         email = form.email.data
         password = form.password.data
-        user = User.query.filter_by
+        user = User.query.filter_by(email=email).first()
         if User.authenticate(email, password):
+            login_user(user)
             return flask.redirect('/user-info')  # TODO change redirect to user page
         else:
             return flask.redirect('login')
@@ -50,15 +51,15 @@ def login():
 
 
 @auth.route('/user-info', methods=['GET', 'POST'])
+@login_required
 def user_info():
-    if not current_user.is_authenticated:
-        return current_app.login_manager.unauthorized()
     user = current_user
     num_apps = len(current_user.job_applications)
     return flask.render_template('user-info.html', user=user, num_apps=num_apps)
 
 
 @auth.route('/logout')
+@login_required
 def logout():
     logout_user()
     return flask.redirect('index')
