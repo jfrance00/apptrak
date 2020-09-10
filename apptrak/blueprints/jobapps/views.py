@@ -5,7 +5,8 @@ from . import jobapps, forms
 from .models import JobApplication
 from ..auth.models import User
 from ... import db
-from ...sort_data import single_sorting_feature, double_sorting_feature, triple_sorting_feature, quad_sorting_feature, remove_archived
+from ... import sort_data
+#from ...sort_data import single_sorting_feature, double_sorting_feature, triple_sorting_feature, quad_sorting_feature, remove_archived
 from flask_login import current_user, login_required
 import datetime
 
@@ -38,24 +39,34 @@ def add_app():
 @jobapps.route('/current-apps', methods=['GET', 'POST'])
 @login_required
 def display_apps():
-    applications = current_user.job_applications
-    active_applications = remove_archived(applications)
-    applications_as_json = []
-    if flask.request.method == 'POST':                                # TODO move this code to sort file
-        sort_field_list = flask.request.form.getlist('filter_field')
-        num_fields_to_check = len(sort_field_list)
-        if num_fields_to_check == 1:                                   # loop checks for all possible combinations of
-            applications = single_sorting_feature(sort_field_list[0])  # filter choices
-        elif num_fields_to_check == 2:
-            applications = double_sorting_feature(sort_field_list)
-        elif num_fields_to_check == 3:
-            applications = triple_sorting_feature(sort_field_list)
-        elif num_fields_to_check == 4:
-            applications = quad_sorting_feature(sort_field_list)
-        return flask.render_template('displayapps.html', applications=applications)
-    for item in applications:
-        single_app = item.__json__()
-        applications_as_json.append(single_app)
+    active_applications = sort_data.remove_archived()
+    if flask.request.method == 'POST':
+        sort_by_attributes = flask.request.form.getlist('filter_field')
+        archive_checkbox = flask.request.form.get('archive')
+        if not archive_checkbox:
+            filtered_apps = sort_data.sort_applications(sort_by_attributes, active_applications)
+        elif archive_checkbox:
+            app_list = sort_data.remove_active()
+            filtered_apps = sort_data.sort_applications(sort_by_attributes, app_list)
+        return flask.render_template('displayapps.html', applications=filtered_apps)
+    # applications = current_user.job_applications
+    # active_applications = remove_archived(applications)
+    # applications_as_json = []
+    # if flask.request.method == 'POST':                                # TODO this code is gross. rewrite and move
+    #     sort_field_list = flask.request.form.getlist('filter_field')
+    #     num_fields_to_check = len(sort_field_list)
+    #     if num_fields_to_check == 1:                                   # loop checks for all possible combinations of
+    #         applications = single_sorting_feature(sort_field_list[0])  # filter choices
+    #     elif num_fields_to_check == 2:
+    #         applications = double_sorting_feature(sort_field_list)
+    #     elif num_fields_to_check == 3:
+    #         applications = triple_sorting_feature(sort_field_list)
+    #     elif num_fields_to_check == 4:
+    #         applications = quad_sorting_feature(sort_field_list)
+    #     return flask.render_template('displayapps.html', applications=applications)
+    # for item in applications:
+    #     single_app = item.__json__()
+    #     applications_as_json.append(single_app)
     return flask.render_template('displayapps.html', applications=active_applications)
 
 
