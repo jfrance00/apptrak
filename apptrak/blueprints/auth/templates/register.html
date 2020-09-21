@@ -3,14 +3,16 @@
 {% block title %} Sign Up {% endblock %}
 
 {% block body %}
+
     <h2 class="card_wrapper">Sign Up!</h2>
-    <form action="" method="POST">
+    <form action="/register" method="POST">
         <div class="card_wrapper">
             <div class="card d-flex justify-content-center" style="width: 26rem;">
                 <div class="card-header">
-                    <b>Make your account below</b>
+                    <b>Sign up by adding your details below</b>
                 </div>
                 <ul class="list-group list-group-flush">
+                    {{ form.csrf_token }}
                     <li class="list-group-item">{{ form.name.label }} : {{ form.name() }}</li>
                     <li class="list-group-item">{{ form.username.label }} : {{ form.username() }}</li>
                     <li class="list-group-item">{{ form.email.label }} : {{ form.email() }}</li>

@@ -20,8 +20,7 @@ from flask import current_app
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     form = forms.Register()
-    if flask.request.method == "POST":
-    # if form.validate_on_submit():
+    if form.validate_on_submit():
         user = User(
             name=form.name.data,
             username=form.username.data,
@@ -32,6 +31,9 @@ def register():
         db.session.commit()
         flask.flash('User registered', category="success")
         return flask.redirect('login')
+    else:
+        for error in form.errors.items():
+            flask.flash(error[1][0], category='warning')
     return flask.render_template('register.html', form=form)
 
 

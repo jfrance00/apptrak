@@ -19,7 +19,6 @@ mail_mgr = flask_mail.Mail()
 
 def create_app(default_env='production'):
     from config import config
-
     from . import views
     from .blueprints.auth.views import auth
     from .blueprints.auth.models import User

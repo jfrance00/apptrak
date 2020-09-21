@@ -5,9 +5,9 @@ from wtforms import validators as valid
 class Register(flask_wtf.FlaskForm):
     name = wtf.StringField('Name', [valid.InputRequired()])
     username = wtf.StringField("Username", [valid.InputRequired()])
-    email = wtf.StringField('Email', [valid.Email()])
+    email = wtf.StringField('Email', [valid.Email(message='Must enter valid email')])
     password = wtf.PasswordField('Password', [valid.InputRequired()])
-    confirm_pass = wtf.PasswordField('Confirm Password', [valid.EqualTo(password)])
+    confirm_pass = wtf.PasswordField('Confirm Password', [valid.EqualTo('password', message='passwords much match')])
     submit = wtf.SubmitField("Register")
 
 
