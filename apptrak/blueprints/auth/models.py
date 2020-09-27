@@ -19,13 +19,10 @@ class User(UserMixin, db.Model):
     @classmethod
     def authenticate(cls, email, password):
         user = cls.query.filter_by(email=email).first()
-        print(user)
         if user:
             if user.password == password:
-                flask_login.login_user(user, remember=True)
                 return True
             else:
-                print(user.password)
                 flask.flash('Email or password incorrect', category='danger')
                 return False
         else:

@@ -45,8 +45,8 @@ def login():
         password = form.password.data
         user = User.query.filter_by(email=email).first()
         if User.authenticate(email, password):
-            login_user(user)
-            return flask.redirect('/user-info')  # TODO change redirect to user page
+            login_user(user, remember=True)       #TODO add option to be remembered in login form (default to True)
+            return flask.redirect('/user-info')
         else:
             return flask.redirect('login')
     return flask.render_template('login.html', form=form)
