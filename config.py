@@ -28,6 +28,12 @@ class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     DEBUG = False
 
+    MAIL_SERVER = "smtp.gmail.com"
+    MAIL_PORT = 587  # if use SSL instead change to 465
+    MAIL_USE_TLS = True
+    MAIL_USE_SSL = False
+    MAIL_USERNAME = 'apptrak20@gmail.com'  # TODO don't hard code name and passwords
+    MAIL_PASSWORD = 'th!si$apassw0rd'
 
 config = {
     "development": DevConfig,

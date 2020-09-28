@@ -31,7 +31,6 @@ def send_password_link(email, user):
         'expires': (datetime.datetime.now() + datetime.timedelta(hours=1)).timestamp()
                }
     token = jwt.encode(payload, current_app.config['SECRET_KEY'])
-    print(token)
     url = flask.url_for('auth.reset_password', jwt_token=token, _external=True)
     msg = flask_mail.Message(
         subject="Password Reset",

@@ -88,7 +88,7 @@ def reset_password(jwt_token):
     payload = jwt.decode(jwt_token, current_app.config['SECRET_KEY'])
     user = User.query.filter_by(id=payload['user_id']).first()
 
-    if datetime.datetime.now().timestamp() < payload['expires']:      # loop checks if token good
+    if datetime.datetime.now().timestamp() < payload['expires']:      # loop checks if token valid
         form = forms.PasswordReset()
     else:
         flask.flash("token expired. Try again", category="error")

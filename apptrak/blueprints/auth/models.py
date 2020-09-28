@@ -2,10 +2,12 @@ from ... import db, login_mgr
 from flask_login import UserMixin
 import flask
 import flask_login
-import time
-import jwt
 from ..jobapps.models import JobApplication
 
+
+@login_mgr.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 
 
 class User(UserMixin, db.Model):
@@ -26,7 +28,7 @@ class User(UserMixin, db.Model):
                 flask.flash('Email or password incorrect', category='danger')
                 return False
         else:
-            flask.flash('Email or password incorrect', category='danger')
+            flask.flash('No account associated with that email. Please sign up', category='danger')
             return False
 
     # def get_reset_password_token(self, expires_in=600):
@@ -52,9 +54,7 @@ class User(UserMixin, db.Model):
         db.session.commit()
 
 
-@login_mgr.user_loader
-def load_user(user_id):
-    return User.query.get(user_id)
+
 
 
 
