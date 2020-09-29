@@ -13,7 +13,7 @@ basedir = os.path.abspath(
 
 db = flask_sqlalchemy.SQLAlchemy()
 migrate = flask_migrate.Migrate()
-login_mgr = flask_login.LoginManager()
+login_manager = flask_login.LoginManager()
 mail_mgr = flask_mail.Mail()
 
 
@@ -30,7 +30,7 @@ def create_app(default_env='production'):
     app.config.from_object(config[env])
     db.init_app(app)
     migrate.init_app(app, db)
-    login_mgr.init_app(app)
+    login_manager.init_app(app)
     mail_mgr.init_app(app)
 
     app.register_blueprint(auth)

@@ -1,13 +1,13 @@
-from ... import db, login_mgr
+from ... import db, login_manager
 from flask_login import UserMixin
 import flask
 import flask_login
 from ..jobapps.models import JobApplication
 
 
-@login_mgr.user_loader
+@login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(user_id)
+    return User.query.filter_by(id=user_id).first()
 
 
 class User(UserMixin, db.Model):

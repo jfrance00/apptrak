@@ -2,7 +2,7 @@ import flask
 from flask_login import login_user, logout_user, current_user, login_required
 from . import forms, auth
 from .models import User
-from ... import db
+from ... import db, sort_data
 from ...mail_handler import send_password_link
 import jwt
 import datetime
@@ -56,7 +56,7 @@ def login():
 @login_required
 def user_info():
     user = current_user
-    num_apps = len(current_user.job_applications)
+    num_apps = len(sort_data.remove_archived())
     return flask.render_template('user-info.html', user=user, num_apps=num_apps)
 
 
