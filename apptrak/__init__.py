@@ -18,13 +18,6 @@ login_manager = flask_login.LoginManager()
 mail_mgr = flask_mail.Mail()
 
 
-@login_manager.user_loader
-def load_user(user_id):
-    print('load user called')
-    print(User.query.get(user_id))
-    return User.query.get(user_id)
-
-
 def create_app(default_env='production'):
     from config import config
     from . import views
