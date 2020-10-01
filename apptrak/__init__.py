@@ -4,6 +4,7 @@ import flask_migrate
 import flask_login
 import flask_mail
 import psycopg2
+from .blueprints.auth.models import User
 import os
 
 
@@ -15,6 +16,13 @@ db = flask_sqlalchemy.SQLAlchemy()
 migrate = flask_migrate.Migrate()
 login_manager = flask_login.LoginManager()
 mail_mgr = flask_mail.Mail()
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    print('load user called')
+    print(User.query.get(user_id))
+    return User.query.get(user_id)
 
 
 def create_app(default_env='production'):
