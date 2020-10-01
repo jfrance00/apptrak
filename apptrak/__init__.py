@@ -4,7 +4,6 @@ import flask_migrate
 import flask_login
 import flask_mail
 import psycopg2
-from .blueprints.auth.models import User
 import os
 
 

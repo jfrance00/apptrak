@@ -5,11 +5,11 @@ import flask_login
 from ..jobapps.models import JobApplication
 
 
-# @login_manager.user_loader
-# def load_user(user_id):
-#     print('load user called')
-#     print(User.query.get(user_id))
-#     return User.query.get(user_id)
+@login_manager.user_loader
+def load_user(user_id):
+    print('load user called')
+    print(User.query.get(user_id))
+    return User.query.get(user_id)
 
 
 class User(UserMixin, db.Model):

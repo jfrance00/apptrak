@@ -1,5 +1,5 @@
 import flask
-from flask_login import login_user, logout_user, current_user, login_required, login_manager
+from flask_login import login_user, logout_user, current_user, login_required
 from . import forms, auth
 from .models import User
 from ... import db, sort_data
@@ -15,13 +15,6 @@ from flask import current_app
 # from wsgi import app
 #
 # os.chdir('C:\\Users\\Julie\\Desktop\\apptrak\\apptrak\\blueprints\\auth')
-
-
-@login_manager.user_loader
-def load_user(user_id):
-    print('load user called')
-    print(User.query.get(user_id))
-    return User.query.get(user_id)
 
 
 @auth.route('/register', methods=['GET', 'POST'])
