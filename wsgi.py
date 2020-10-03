@@ -1,4 +1,5 @@
-from apptrak import create_app
+from apptrak import create_app, csrf
+
 
 app = create_app()
 
