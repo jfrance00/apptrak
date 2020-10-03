@@ -5,6 +5,8 @@ import flask_login
 import flask_mail
 import psycopg2
 import os
+from flask_wtf.csrf import CSRFProtect
+
 
 
 basedir = os.path.abspath(
@@ -15,6 +17,7 @@ db = flask_sqlalchemy.SQLAlchemy()
 migrate = flask_migrate.Migrate()
 login_manager = flask_login.LoginManager()
 mail_mgr = flask_mail.Mail()
+csrf = CSRFProtect()
 
 
 def create_app(default_env='production'):
@@ -32,6 +35,7 @@ def create_app(default_env='production'):
     migrate.init_app(app, db)
     login_manager.init_app(app)
     mail_mgr.init_app(app)
+    csrf.init_app(app)
 
     app.register_blueprint(auth)
     app.register_blueprint(landing)
