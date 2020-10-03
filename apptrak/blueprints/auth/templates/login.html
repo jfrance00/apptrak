@@ -9,6 +9,7 @@
        <div class="card_wrapper">
             <div class="card d-flex justify-content-center" style="width: 26rem;">
                 <ul class="list-group list-group-flush">
+                    {{ form.csrf_token }}
                     <li class="list-group-item">{{ form.email.label }}  :   {{ form.email() }}</li>
                     <li class="list-group-item">{{ form.password.label }}  :   {{ form.password() }}</li>
                     <li class="list-group-item"> {{ form.submit() }}</li>

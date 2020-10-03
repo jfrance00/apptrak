@@ -20,7 +20,7 @@ mail_mgr = flask_mail.Mail()
 csrf = CSRFProtect()
 
 
-def create_app(default_env='production'):
+def create_app(default_env='development'):
     from config import config
     from . import views
     from .blueprints.auth.views import auth
